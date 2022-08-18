@@ -1,14 +1,14 @@
 {
-  "name": "react-honeycomb",
+  "name": "react-bee",
   "version": "1.0.0",
-  "description": "Collection of tools for the development of your react web application.",
+  "description": "Collection of tools for your react web application.",
   "author": {
     "name": "Samuel Olvera",
     "email": "jsamline@gmail.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/samline/react-honeycomb",
-  "repository": "samline/react-honeycomb",
+  "homepage": "https://github.com/samline/react-bee",
+  "repository": "samline/react-bee",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",

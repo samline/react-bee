@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { FontAwesomeIcon } from 'react-honeycomb'
+import { FontAwesomeIcon } from 'react-bee'
 
 const App = () => {
   return (
