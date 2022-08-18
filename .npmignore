@@ -1,0 +1,45 @@
+## src
+.babelrc
+rollup.config.js
+src
+
+## node_modules
+node_modules
+
+#others
+config.gypi
+package-lock.json
+
+# directories
+example
+
+# Files
+webpack.mix.js
+yarn.lock
+
+## gitrelated files
+_ide_helpers.php
+.DS_Store
+.editorconfig
+.git
+.github
+.gitignore
+.hg
+.idea/
+.lock-wscript
+.npmignore
+.npmrc
+.phpunit.result.cache
+.svn
+.tags
+.vagrant/
+.vscode
+.wafpickle-N
+CVS
+nbproject/
+npm-debug.log
+npm-debug.log
+package-lock.json
+tests/_output/*
+Thumbs.db
+yarn-error.log
