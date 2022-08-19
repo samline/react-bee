@@ -1,8 +1,7 @@
 import React from 'react';
-import { config, library } from '@fortawesome/fontawesome-svg-core';
+import { library } from '@fortawesome/fontawesome-svg-core';
 import styled from 'styled-components';
 import { compose, color, layout, position, space, typography } from 'styled-system';
-import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon as FontAwesomeIcon$1 } from '@fortawesome/react-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
@@ -53,7 +52,6 @@ var _templateObject;
 var Icon = styled(FontAwesomeIcon$1)(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  ", "\n"])), compose(color, layout, position, space, typography));
 
 var _excluded = ["icon", "lib"];
-config.autoAddCss = false;
 library.add(fab, far, fas);
 var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   var icon = _ref.icon,

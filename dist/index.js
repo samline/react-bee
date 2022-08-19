@@ -4,7 +4,6 @@ var React = _interopDefault(require('react'));
 var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
 var styled = _interopDefault(require('styled-components'));
 var ss = require('styled-system');
-require('@fortawesome/fontawesome-svg-core/styles.css');
 var reactFontawesome = require('@fortawesome/react-fontawesome');
 var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
 var freeRegularSvgIcons = require('@fortawesome/free-regular-svg-icons');
@@ -55,7 +54,6 @@ var _templateObject;
 var Icon = styled(reactFontawesome.FontAwesomeIcon)(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  ", "\n"])), ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
 
 var _excluded = ["icon", "lib"];
-fontawesomeSvgCore.config.autoAddCss = false;
 fontawesomeSvgCore.library.add(freeBrandsSvgIcons.fab, freeRegularSvgIcons.far, freeSolidSvgIcons.fas);
 var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   var icon = _ref.icon,

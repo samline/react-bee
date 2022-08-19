@@ -13,7 +13,7 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 
 /* Settings */
-config.autoAddCss = false
+// config.autoAddCss = false
 library.add(fab, far, fas)
 
 /**

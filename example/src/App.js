@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
       <p>Example 😄</p>
-      <FontAwesomeIcon icon='home' />
+      <FontAwesomeIcon icon='chevron-right' fontSize="60px" color="pink" ml="500px" />
     </>
   )
 }
