@@ -16,8 +16,11 @@ yarn add react-bee
 
 ```jsx
 import {
+
   /* Components */
+  Button,
   FontAwesomeIcon
+
 } from 'react-bee'
 // ...
 ```
