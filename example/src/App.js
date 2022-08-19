@@ -1,5 +1,7 @@
+/* Default */
 import React from 'react'
 
+/* Components */
 import { FontAwesomeIcon } from 'react-bee'
 
 const App = () => {

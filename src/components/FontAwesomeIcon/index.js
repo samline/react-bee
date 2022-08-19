@@ -5,7 +5,6 @@ import React from 'react'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
 
 /* Styles */
-import '@fortawesome/fontawesome-svg-core/styles.css'
 import { Icon } from './styles'
 
 /* Libraries */

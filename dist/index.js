@@ -2,9 +2,9 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var React = _interopDefault(require('react'));
 var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
-require('@fortawesome/fontawesome-svg-core/styles.css');
 var styled = _interopDefault(require('styled-components'));
 var ss = require('styled-system');
+require('@fortawesome/fontawesome-svg-core/styles.css');
 var reactFontawesome = require('@fortawesome/react-fontawesome');
 var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
 var freeRegularSvgIcons = require('@fortawesome/free-regular-svg-icons');

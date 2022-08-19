@@ -1,6 +1,7 @@
 /* Packages */
 import styled from 'styled-components'
 import * as ss from 'styled-system'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Icon = styled(FontAwesomeIcon)`
