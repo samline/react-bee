@@ -21,7 +21,9 @@ import { Button as StyledButton } from './styles'
 export const Button = React.forwardRef(({ scroll = true, ...props }, ref) => {
   return (
     <React.Fragment>
-      {((props.target || !props.href) && <A ref={ref} {...props} />) || (
+      {((props.target || !props.href) && (
+        <A ref={ref} rel={props.target ? 'noreferrer noopener' : null} {...props} />
+      )) || (
         <Link href={props.href} passHref scroll={scroll}>
           <A ref={ref} {...props} />
         </Link>
