@@ -49,7 +49,7 @@ function _taggedTemplateLiteralLoose(strings, raw) {
 }
 
 var _templateObject;
-var Icon = styled(FontAwesomeIcon$1)(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  ", "\n"])), compose(color, layout, position, space, typography));
+var Icon = styled(FontAwesomeIcon$1)(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  height: 1em;\n  ", "\n"])), compose(color, layout, position, space, typography));
 
 var _excluded = ["icon", "lib"];
 library.add(fab, far, fas);

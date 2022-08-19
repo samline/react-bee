@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Packages */
-import { config, library } from '@fortawesome/fontawesome-svg-core'
+import { library } from '@fortawesome/fontawesome-svg-core'
 
 /* Styles */
 import { Icon } from './styles'
@@ -13,7 +13,6 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 
 /* Settings */
-// config.autoAddCss = false
 library.add(fab, far, fas)
 
 /**

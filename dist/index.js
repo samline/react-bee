@@ -51,7 +51,7 @@ function _taggedTemplateLiteralLoose(strings, raw) {
 }
 
 var _templateObject;
-var Icon = styled(reactFontawesome.FontAwesomeIcon)(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  ", "\n"])), ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
+var Icon = styled(reactFontawesome.FontAwesomeIcon)(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  height: 1em;\n  ", "\n"])), ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
 
 var _excluded = ["icon", "lib"];
 fontawesomeSvgCore.library.add(freeBrandsSvgIcons.fab, freeRegularSvgIcons.far, freeSolidSvgIcons.fas);
