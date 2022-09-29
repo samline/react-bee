@@ -5,6 +5,7 @@
 // ...
 
 /* Components */
+import { NormalizeCss } from './components/NormalizeCss'
 import { FontAwesomeIcon } from './components/FontAwesomeIcon'
 import { Button } from './components/Button'
 
@@ -16,6 +17,7 @@ export {
   // ...
 
   /* Components */
+  NormalizeCss,
   Button,
   FontAwesomeIcon
 }
