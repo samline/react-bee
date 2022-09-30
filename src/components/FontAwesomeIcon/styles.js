@@ -1,11 +1,18 @@
 /* Packages */
 import styled from 'styled-components'
-import * as ss from 'styled-system'
+import {
+  compose,
+  color,
+  layout,
+  position,
+  space,
+  typography
+} from 'styled-system'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Icon = styled(FontAwesomeIcon)`
   height: 1em;
-  ${ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography)}
+  ${compose(color, layout, position, space, typography)}
 `
 
 export default FontAwesomeGlobalStyle

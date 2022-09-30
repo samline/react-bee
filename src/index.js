@@ -6,8 +6,9 @@
 
 /* Components */
 import { NormalizeCss } from './components/NormalizeCss'
-import { FontAwesomeIcon } from './components/FontAwesomeIcon'
+import { Box, Flex, Grid, Track, _ } from './components/Layout'
 import { Button } from './components/Button'
+import { FontAwesomeIcon } from './components/FontAwesomeIcon'
 
 export {
   /* Contexts */
@@ -18,6 +19,11 @@ export {
 
   /* Components */
   NormalizeCss,
+  Box,
+  Flex,
+  Grid,
+  Track,
+  _,
   Button,
   FontAwesomeIcon
 }

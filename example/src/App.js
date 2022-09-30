@@ -1,14 +1,22 @@
 /* Default */
 import React from 'react'
 
-/* Components */
+/* Packages */
 import { NormalizeCss } from 'react-bee'
+
+/* Examples */
+import { FlexExample } from './FlexExample'
+import { GridExample } from './GridExample'
 
 const App = () => {
   return (
     <>
       <NormalizeCss />
-      <p>Example</p>
+      <FlexExample />
+      <br />
+      <br />
+      <hr />
+      <GridExample />
     </>
   )
 }

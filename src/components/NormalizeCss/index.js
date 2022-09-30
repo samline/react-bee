@@ -17,7 +17,7 @@ export const NormalizeCss = createGlobalStyle`
     /* prettier-ignore */
     --secure-font: -apple-system, BlinkMacSystemFont, 'Segoe UI','Source Sans Pro', Oxygen, sans-serif;
     --main-font: 'Source Sans Pro';
-    --body-font-family: var(--main-font), var(--default-font);
+    --body-font-family: var(--main-font), var(--secure-font);
     --body-font-size: 16px;
   }
 
@@ -37,7 +37,7 @@ export const NormalizeCss = createGlobalStyle`
     font-size: var(--body-font-size);
     height: 100%;
     margin: 0 auto;
-    padding: 0px;
+    padding: 0;
     position: relative;
     width: 100%;
   }

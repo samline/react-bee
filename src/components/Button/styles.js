@@ -1,6 +1,13 @@
 /* Packages */
 import styled, { css } from 'styled-components'
-import * as ss from 'styled-system'
+import {
+  compose,
+  color,
+  layout,
+  position,
+  space,
+  typography
+} from 'styled-system'
 
 export const Button = styled.a`
   color: inherit;
@@ -16,5 +23,5 @@ export const Button = styled.a`
       pointer-events: none;
     `}
 
-  ${ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography)}
+  ${compose(color, layout, position, space, typography)}
 `

@@ -19,8 +19,8 @@ library.add(fab, far, fas)
  * FontAwesomeIcon
  * @param {string} icon (required) - The icon to use. (e.g. 'chevron-right')
  * @param {string} lib - The library to use. - (e.g. 'fas', 'fab', 'far') - default: 'fas'
- * @param {object} props - The props to pass to the component.
- * @returns
+ * @param {...any} props
+ * @returns component
  *
  * @docs https://fontawesome.com/search
  * @styleSystem [color, layout, position, space, typography] - https://styled-system.com/table

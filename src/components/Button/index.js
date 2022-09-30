@@ -3,7 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 
 /* Styles */
-import { Button as StyledButton } from './styles'
+import { Button as ButtonStyled } from './styles'
 
 /**
  * Button
@@ -12,8 +12,8 @@ import { Button as StyledButton } from './styles'
  * @param {string} href - Href of the link
  * @param {string} target - Target of the link - (e.g. _blank)
  * @param {boolean} scroll - Go to top on click - default: true
- * @param {props}
- * @returns
+ * @param {...any} props
+ * @returns component
  *
  * @styleSystem [color, layout, position, space, typography] - https://styled-system.com/table
  */
@@ -36,13 +36,13 @@ Button.displayName = 'Button'
 
 const A = React.forwardRef(({ children, label, ...props }, ref) => {
   return (
-    <StyledButton
+    <ButtonStyled
       ref={ref}
       type={props.as === 'button' ? 'submit' : null}
       {...props}
     >
       {(children && children) || <span>{label}</span>}
-    </StyledButton>
+    </ButtonStyled>
   )
 })
 
