@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Packages */
-import { Box, Flex, Track } from 'react-bee'
+import { Box, Flex, Track, FontAwesomeIcon } from 'react-bee'
 
 export const FlexExample = () => (
   <Box>
@@ -22,7 +22,7 @@ export const FlexExample = () => (
               flex='1 1 300px'
               textAlign='center'
             >
-              {i}
+              <FontAwesomeIcon icon='circle-check' lib="far" /> {i}
             </Track>
           ))}
       </>
