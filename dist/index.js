@@ -185,11 +185,16 @@ var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   }, props));
 };
 
+var Input = function Input() {
+  return /*#__PURE__*/React.createElement("p", null, "inp\xFAt here");
+};
+
 exports.Box = Box$1;
 exports.Button = Button$1;
 exports.Flex = Flex$1;
 exports.FontAwesomeIcon = FontAwesomeIcon;
 exports.Grid = Grid$1;
+exports.Input = Input;
 exports.NormalizeCss = NormalizeCss;
 exports.Track = Track$1;
 exports._ = _$1;
