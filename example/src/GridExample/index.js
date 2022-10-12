@@ -7,7 +7,7 @@ import { Box, Grid, Track, _ } from 'react-bee'
 export const GridExample = () => (
   <Box>
     <Track>
-      <h2>Grid Example</h2>
+      <h2>Grid</h2>
     </Track>
     <Grid
       gridTemplateColumns='repeat(auto-fill, minmax(min(300px, 100%), 1fr))'

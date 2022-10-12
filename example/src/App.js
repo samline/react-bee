@@ -7,6 +7,7 @@ import { NormalizeCss } from 'react-bee'
 /* Examples */
 import { FlexExample } from './FlexExample'
 import { GridExample } from './GridExample'
+import { Form } from './Form'
 
 const App = () => {
   return (
@@ -17,6 +18,10 @@ const App = () => {
       <br />
       <hr />
       <GridExample />
+      <br />
+      <br />
+      <hr />
+      <Form />
     </>
   )
 }
