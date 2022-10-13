@@ -7,13 +7,13 @@ import { NormalizeCss } from 'react-bee'
 /* Examples */
 import { FlexExample } from './FlexExample'
 import { GridExample } from './GridExample'
-import { Form } from './Form'
+import { HookForm } from './Form'
 
 const App = () => {
   return (
     <>
       <NormalizeCss />
-      <FlexExample />
+      <HookForm />
       <br />
       <br />
       <hr />
@@ -21,7 +21,7 @@ const App = () => {
       <br />
       <br />
       <hr />
-      <Form />
+      <FlexExample />
     </>
   )
 }

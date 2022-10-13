@@ -10,44 +10,39 @@ var reactFontawesome = require('@fortawesome/react-fontawesome');
 var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
 var freeRegularSvgIcons = require('@fortawesome/free-regular-svg-icons');
 var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
+var reactHookForm = require('react-hook-form');
+var reactIdGenerator = require('react-id-generator');
 
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
-
       for (var key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
           target[key] = source[key];
         }
       }
     }
-
     return target;
   };
   return _extends.apply(this, arguments);
 }
-
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
   var key, i;
-
   for (i = 0; i < sourceKeys.length; i++) {
     key = sourceKeys[i];
     if (excluded.indexOf(key) >= 0) continue;
     target[key] = source[key];
   }
-
   return target;
 }
-
 function _taggedTemplateLiteralLoose(strings, raw) {
   if (!raw) {
     raw = strings.slice(0);
   }
-
   strings.raw = raw;
   return strings;
 }
@@ -74,10 +69,10 @@ var Box = styled__default.div(_templateObject$1 || (_templateObject$1 = _taggedT
 }, ss.compose(ss.layout, ss.position, ss.space));
 
 var _excluded = ["children"];
+
 var Box$1 = function Box$1(_ref) {
   var children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded);
-
+    props = _objectWithoutPropertiesLoose(_ref, _excluded);
   return /*#__PURE__*/React.createElement(Box, props, children);
 };
 
@@ -87,10 +82,10 @@ var Flex = styled__default.div(_templateObject$2 || (_templateObject$2 = _tagged
 }, ss.compose(ss.flexbox, ss.grid, ss.layout, ss.space));
 
 var _excluded$1 = ["children"];
+
 var Flex$1 = function Flex$1(_ref) {
   var children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
-
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
   return /*#__PURE__*/React.createElement(Flex, props, children);
 };
 
@@ -100,10 +95,10 @@ var Grid = styled__default.div(_templateObject$3 || (_templateObject$3 = _tagged
 }, ss.compose(ss.flexbox, ss.grid, ss.layout, ss.space));
 
 var _excluded$2 = ["children"];
+
 var Grid$1 = function Grid$1(_ref) {
   var children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$2);
-
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$2);
   return /*#__PURE__*/React.createElement(Grid, props, children);
 };
 
@@ -115,10 +110,10 @@ var Track = styled__default.div(_templateObject$4 || (_templateObject$4 = _tagge
 }, ss.compose(ss.background, ss.border, ss.color, ss.flexbox, ss.grid, ss.layout, ss.space, ss.typography));
 
 var _excluded$3 = ["children"];
+
 var Track$1 = function Track$1(_ref) {
   var children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$3);
-
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$3);
   return /*#__PURE__*/React.createElement(Track, props, children);
 };
 
@@ -126,10 +121,10 @@ var _templateObject$5;
 var _ = styled__default.div(_templateObject$5 || (_templateObject$5 = _taggedTemplateLiteralLoose(["\n  ", "\n"])), ss.compose(ss.background, ss.border, ss.color, ss.flexbox, ss.grid, ss.layout, ss.position, ss.shadow, ss.space, ss.typography));
 
 var _excluded$4 = ["children"];
+
 var _$1 = function _$1(_ref) {
   var children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$4);
-
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$4);
   return /*#__PURE__*/React.createElement(_, props, children);
 };
 
@@ -139,12 +134,12 @@ var Button = styled__default.a(_templateObject$6 || (_templateObject$6 = _tagged
 }, ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
 
 var _excluded$5 = ["scroll"],
-    _excluded2 = ["children", "label"];
+  _excluded2 = ["children", "label"];
+
 var Button$1 = React.forwardRef(function (_ref, ref) {
   var _ref$scroll = _ref.scroll,
-      scroll = _ref$scroll === void 0 ? true : _ref$scroll,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$5);
-
+    scroll = _ref$scroll === void 0 ? true : _ref$scroll,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$5);
   return /*#__PURE__*/React.createElement(React.Fragment, null, (props.target || !props.href) && /*#__PURE__*/React.createElement(A, _extends({
     ref: ref,
     rel: props.target ? 'noreferrer noopener' : null
@@ -159,9 +154,8 @@ var Button$1 = React.forwardRef(function (_ref, ref) {
 Button$1.displayName = 'Button';
 var A = React.forwardRef(function (_ref2, ref) {
   var children = _ref2.children,
-      label = _ref2.label,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded2);
-
+    label = _ref2.label,
+    props = _objectWithoutPropertiesLoose(_ref2, _excluded2);
   return /*#__PURE__*/React.createElement(Button, _extends({
     ref: ref,
     type: props.as === 'button' ? 'submit' : null
@@ -173,26 +167,67 @@ var _templateObject$7;
 var Icon = styled__default(reactFontawesome.FontAwesomeIcon)(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteralLoose(["\n  height: 1em;\n  ", "\n"])), ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
 
 var _excluded$6 = ["icon", "lib"];
+
 fontawesomeSvgCore.library.add(freeBrandsSvgIcons.fab, freeRegularSvgIcons.far, freeSolidSvgIcons.fas);
+
 var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   var icon = _ref.icon,
-      _ref$lib = _ref.lib,
-      lib = _ref$lib === void 0 ? 'fas' : _ref$lib,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
-
+    _ref$lib = _ref.lib,
+    lib = _ref$lib === void 0 ? 'fas' : _ref$lib,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
   return /*#__PURE__*/React.createElement(Icon, _extends({
     icon: [lib, icon]
   }, props));
 };
 
-var Input = function Input() {
-  return /*#__PURE__*/React.createElement("p", null, "inp\xFAt here");
+var _excluded$7 = ["children", "onSubmit"];
+
+var Form = function Form(_ref) {
+  var children = _ref.children,
+    onSubmit = _ref.onSubmit,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
+  var methods = reactHookForm.useForm();
+  return /*#__PURE__*/React.createElement(reactHookForm.FormProvider, methods, /*#__PURE__*/React.createElement("form", _extends({
+    onSubmit: onSubmit && methods.handleSubmit(onSubmit)
+  }, props), children));
+};
+
+var _excluded$8 = ["name", "validations"];
+
+var Error = function Error(_ref) {
+  var _errors$name, _errors$name2, _errors$name3, _errors$name4, _errors$name5, _errors$name6, _errors$name7;
+  var name = _ref.name,
+    validations = _ref.validations,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
+  var _useFormContext = reactHookForm.useFormContext(),
+    errors = _useFormContext.formState.errors;
+  return /*#__PURE__*/React.createElement("span", props, ((_errors$name = errors[name]) === null || _errors$name === void 0 ? void 0 : _errors$name.type) === 'required' && validations.required, ((_errors$name2 = errors[name]) === null || _errors$name2 === void 0 ? void 0 : _errors$name2.type) === 'min' && validations.min, ((_errors$name3 = errors[name]) === null || _errors$name3 === void 0 ? void 0 : _errors$name3.type) === 'max' && validations.max, ((_errors$name4 = errors[name]) === null || _errors$name4 === void 0 ? void 0 : _errors$name4.type) === 'minLength' && validations.minLength, ((_errors$name5 = errors[name]) === null || _errors$name5 === void 0 ? void 0 : _errors$name5.type) === 'maxLength' && validations.maxLength, ((_errors$name6 = errors[name]) === null || _errors$name6 === void 0 ? void 0 : _errors$name6.type) === 'pattern' && validations.pattern, ((_errors$name7 = errors[name]) === null || _errors$name7 === void 0 ? void 0 : _errors$name7.type) === 'validate' && validations.validate);
+};
+
+var _excluded$9 = ["id", "name", "value", "validations"];
+
+var Input = function Input(_ref) {
+  var id = _ref.id,
+    _ref$name = _ref.name,
+    name = _ref$name === void 0 ? '__name-required__' : _ref$name,
+    value = _ref.value,
+    validations = _ref.validations,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
+  var _useFormContext = reactHookForm.useFormContext(),
+    register = _useFormContext.register;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("input", _extends({
+    id: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
+    name: name,
+    defaultValue: value
+  }, register(name, _extends({}, validations)), props)));
 };
 
 exports.Box = Box$1;
 exports.Button = Button$1;
+exports.Error = Error;
 exports.Flex = Flex$1;
 exports.FontAwesomeIcon = FontAwesomeIcon;
+exports.Form = Form;
 exports.Grid = Grid$1;
 exports.Input = Input;
 exports.NormalizeCss = NormalizeCss;

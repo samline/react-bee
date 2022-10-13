@@ -7,6 +7,8 @@ import { FontAwesomeIcon as FontAwesomeIcon$1 } from '@fortawesome/react-fontawe
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { useForm, FormProvider, useFormContext } from 'react-hook-form';
+import { useId } from 'react-id-generator';
 
 const breakpoints = {
   _xs: '374px',
@@ -22,7 +24,7 @@ const breakpoints = {
 };
 
 let _ = t => t,
-    _t;
+  _t;
 const NormalizeCss = createGlobalStyle(_t || (_t = _`
   :root {
     --xs: ${0};
@@ -111,8 +113,8 @@ const NormalizeCss = createGlobalStyle(_t || (_t = _`
 `), breakpoints.xs, breakpoints.s, breakpoints.m, breakpoints.l, breakpoints.xl);
 
 let _$1 = t => t,
-    _t$1,
-    _t2;
+  _t$1,
+  _t2;
 const Box = styled.div(_t$1 || (_t$1 = _$1`
   display: block;
   margin: 0 auto;
@@ -132,8 +134,8 @@ const Box$1 = ({
 }) => /*#__PURE__*/React.createElement(Box, props, children);
 
 let _$2 = t => t,
-    _t$2,
-    _t2$1;
+  _t$2,
+  _t2$1;
 const Flex = styled.div(_t$2 || (_t$2 = _$2`
   align-items: center;
   display: flex;
@@ -151,8 +153,8 @@ const Flex$1 = ({
 }) => /*#__PURE__*/React.createElement(Flex, props, children);
 
 let _$3 = t => t,
-    _t$3,
-    _t2$2;
+  _t$3,
+  _t2$2;
 const Grid = styled.div(_t$3 || (_t$3 = _$3`
   align-items: center;
   display: grid;
@@ -170,9 +172,9 @@ const Grid$1 = ({
 }) => /*#__PURE__*/React.createElement(Grid, props, children);
 
 let _$4 = t => t,
-    _t$4,
-    _t2$3,
-    _t3;
+  _t$4,
+  _t2$3,
+  _t3;
 const Track = styled.div(_t$4 || (_t$4 = _$4`
   padding: 0.625rem;
 
@@ -193,7 +195,7 @@ const Track$1 = ({
 }) => /*#__PURE__*/React.createElement(Track, props, children);
 
 let _2 = t => t,
-    _t$5;
+  _t$5;
 const _$5 = styled.div(_t$5 || (_t$5 = _2`
   ${0}
 `), compose(background, border, color, flexbox, grid, layout, position, shadow, space, typography));
@@ -204,8 +206,8 @@ const _$6 = ({
 }) => /*#__PURE__*/React.createElement(_$5, props, children);
 
 let _$7 = t => t,
-    _t$6,
-    _t2$4;
+  _t$6,
+  _t2$4;
 const Button = styled.a(_t$6 || (_t$6 = _$7`
   color: inherit;
   cursor: pointer;
@@ -250,13 +252,14 @@ const A = React.forwardRef(({
 A.displayName = 'A';
 
 let _$8 = t => t,
-    _t$7;
+  _t$7;
 const Icon = styled(FontAwesomeIcon$1)(_t$7 || (_t$7 = _$8`
   height: 1em;
   ${0}
 `), compose(color, layout, position, space, typography));
 
 library.add(fab, far, fas);
+
 const FontAwesomeIcon = ({
   icon,
   lib: _lib = 'fas',
@@ -267,9 +270,49 @@ const FontAwesomeIcon = ({
   }, props));
 };
 
-const Input = () => {
-  return /*#__PURE__*/React.createElement("p", null, "inp\xFAt here");
+const Form = ({
+  children,
+  onSubmit,
+  ...props
+}) => {
+  const methods = useForm();
+  return /*#__PURE__*/React.createElement(FormProvider, methods, /*#__PURE__*/React.createElement("form", Object.assign({
+    onSubmit: onSubmit && methods.handleSubmit(onSubmit)
+  }, props), children));
 };
 
-export { Box$1 as Box, Button$1 as Button, Flex$1 as Flex, FontAwesomeIcon, Grid$1 as Grid, Input, NormalizeCss, Track$1 as Track, _$6 as _ };
+const Error = ({
+  name,
+  validations,
+  ...props
+}) => {
+  var _errors$name, _errors$name2, _errors$name3, _errors$name4, _errors$name5, _errors$name6, _errors$name7;
+  const {
+    formState: {
+      errors
+    }
+  } = useFormContext();
+  return /*#__PURE__*/React.createElement("span", props, ((_errors$name = errors[name]) === null || _errors$name === void 0 ? void 0 : _errors$name.type) === 'required' && validations.required, ((_errors$name2 = errors[name]) === null || _errors$name2 === void 0 ? void 0 : _errors$name2.type) === 'min' && validations.min, ((_errors$name3 = errors[name]) === null || _errors$name3 === void 0 ? void 0 : _errors$name3.type) === 'max' && validations.max, ((_errors$name4 = errors[name]) === null || _errors$name4 === void 0 ? void 0 : _errors$name4.type) === 'minLength' && validations.minLength, ((_errors$name5 = errors[name]) === null || _errors$name5 === void 0 ? void 0 : _errors$name5.type) === 'maxLength' && validations.maxLength, ((_errors$name6 = errors[name]) === null || _errors$name6 === void 0 ? void 0 : _errors$name6.type) === 'pattern' && validations.pattern, ((_errors$name7 = errors[name]) === null || _errors$name7 === void 0 ? void 0 : _errors$name7.type) === 'validate' && validations.validate);
+};
+
+const Input = ({
+  id,
+  name: _name = '__name-required__',
+  value,
+  validations,
+  ...props
+}) => {
+  const {
+    register
+  } = useFormContext();
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("input", Object.assign({
+    id: id ? `${_name}:${id}` : `${_name}:${useId()}`,
+    name: _name,
+    defaultValue: value
+  }, register(_name, {
+    ...validations
+  }), props)));
+};
+
+export { Box$1 as Box, Button$1 as Button, Error, Flex$1 as Flex, FontAwesomeIcon, Form, Grid$1 as Grid, Input, NormalizeCss, Track$1 as Track, _$6 as _ };
 //# sourceMappingURL=index.modern.js.map
