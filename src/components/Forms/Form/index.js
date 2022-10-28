@@ -9,7 +9,7 @@ import { FormProvider, useForm } from 'react-hook-form'
  * @param {children} children (required)
  * @param {function} onSubmit - if !onSubmit the form will make a normal request
  * @param {...any} props
- * @returns
+ * @returns onSubmit(data => ())
  */
 
 export const Form = ({ children, onSubmit, ...props }) => {

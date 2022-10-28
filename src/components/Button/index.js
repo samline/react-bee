@@ -18,11 +18,18 @@ import { Button as ButtonStyled } from './styles'
  * @styleSystem [color, layout, position, space, typography] - https://styled-system.com/table
  */
 
+/* TODO: refactor */
+/* TODO: replace styled components by jsx */
+
 export const Button = React.forwardRef(({ scroll = true, ...props }, ref) => {
   return (
     <React.Fragment>
       {((props.target || !props.href) && (
-        <A ref={ref} rel={props.target ? 'noreferrer noopener' : null} {...props} />
+        <A
+          ref={ref}
+          rel={props.target ? 'noreferrer noopener' : null}
+          {...props}
+        />
       )) || (
         <Link href={props.href} passHref scroll={scroll}>
           <A ref={ref} {...props} />

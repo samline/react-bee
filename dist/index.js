@@ -192,45 +192,147 @@ var Form = function Form(_ref) {
   }, props), children));
 };
 
-var _excluded$8 = ["name", "validations"];
+var _excluded$8 = ["name", "validations"],
+  _excluded2$1 = ["message"];
 
 var Error = function Error(_ref) {
-  var _errors$name, _errors$name2, _errors$name3, _errors$name4, _errors$name5, _errors$name6, _errors$name7;
+  var _errors$name, _errors$name2, _errors$name3, _errors$name4, _errors$name5, _errors$name6, _errors$name7, _errors$name8;
   var name = _ref.name,
     validations = _ref.validations,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
   var _useFormContext = reactHookForm.useFormContext(),
     errors = _useFormContext.formState.errors;
-  return /*#__PURE__*/React.createElement("span", props, ((_errors$name = errors[name]) === null || _errors$name === void 0 ? void 0 : _errors$name.type) === 'required' && validations.required, ((_errors$name2 = errors[name]) === null || _errors$name2 === void 0 ? void 0 : _errors$name2.type) === 'min' && validations.min, ((_errors$name3 = errors[name]) === null || _errors$name3 === void 0 ? void 0 : _errors$name3.type) === 'max' && validations.max, ((_errors$name4 = errors[name]) === null || _errors$name4 === void 0 ? void 0 : _errors$name4.type) === 'minLength' && validations.minLength, ((_errors$name5 = errors[name]) === null || _errors$name5 === void 0 ? void 0 : _errors$name5.type) === 'maxLength' && validations.maxLength, ((_errors$name6 = errors[name]) === null || _errors$name6 === void 0 ? void 0 : _errors$name6.type) === 'pattern' && validations.pattern, ((_errors$name7 = errors[name]) === null || _errors$name7 === void 0 ? void 0 : _errors$name7.type) === 'validate' && validations.validate);
+  return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("span", _extends({
+    role: "alert"
+  }, props), ((_errors$name = errors[name]) === null || _errors$name === void 0 ? void 0 : _errors$name.type) === 'required' && validations.required, ((_errors$name2 = errors[name]) === null || _errors$name2 === void 0 ? void 0 : _errors$name2.type) === 'min' && validations.min, ((_errors$name3 = errors[name]) === null || _errors$name3 === void 0 ? void 0 : _errors$name3.type) === 'max' && validations.max, ((_errors$name4 = errors[name]) === null || _errors$name4 === void 0 ? void 0 : _errors$name4.type) === 'minLength' && validations.minLength, ((_errors$name5 = errors[name]) === null || _errors$name5 === void 0 ? void 0 : _errors$name5.type) === 'maxLength' && validations.maxLength, ((_errors$name6 = errors[name]) === null || _errors$name6 === void 0 ? void 0 : _errors$name6.type) === 'pattern' && validations.pattern, ((_errors$name7 = errors[name]) === null || _errors$name7 === void 0 ? void 0 : _errors$name7.type) === 'validate' && validations.validate, ((_errors$name8 = errors[name]) === null || _errors$name8 === void 0 ? void 0 : _errors$name8.type) === 'custom' && validations.custom));
 };
 
-var _excluded$9 = ["id", "name", "value", "validations"];
+var GenericError = function GenericError(_ref2) {
+  var message = _ref2.message,
+    props = _objectWithoutPropertiesLoose(_ref2, _excluded2$1);
+  var _useFormContext2 = reactHookForm.useFormContext(),
+    errors = _useFormContext2.formState.errors;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, Object.keys(errors).length > 0 && message && /*#__PURE__*/React.createElement("span", _extends({
+    role: "alert"
+  }, props), message));
+};
 
-var Input = function Input(_ref) {
-  var id = _ref.id,
-    _ref$name = _ref.name,
-    name = _ref$name === void 0 ? '__name-required__' : _ref$name,
-    value = _ref.value,
-    validations = _ref.validations,
+var _excluded$9 = ["children", "id", "name", "content"];
+
+var Label = React.forwardRef(function (_ref, ref) {
+  var children = _ref.children,
+    id = _ref.id,
+    name = _ref.name,
+    content = _ref.content,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
   var _useFormContext = reactHookForm.useFormContext(),
-    register = _useFormContext.register;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("input", _extends({
+    errors = _useFormContext.formState.errors;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("label", _extends({
+    ref: ref,
+    htmlFor: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
+    "aria-invalid": errors[name] && 'true'
+  }, props), children != null ? children : content));
+});
+
+var _excluded$a = ["id", "name", "value", "validations"];
+
+var Input = React.forwardRef(function (_ref, ref) {
+  var id = _ref.id,
+    name = _ref.name,
+    value = _ref.value,
+    validations = _ref.validations,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
+  var _useFormContext = reactHookForm.useFormContext(),
+    register = _useFormContext.register,
+    errors = _useFormContext.formState.errors;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("input", _extends({
+    ref: ref,
     id: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
     name: name,
-    defaultValue: value
+    defaultValue: value,
+    "aria-invalid": errors[name] && 'true'
   }, register(name, _extends({}, validations)), props)));
-};
+});
 
+var _excluded$b = ["children", "id", "name", "value", "validations"];
+
+var Select = React.forwardRef(function (_ref, ref) {
+  var children = _ref.children,
+    id = _ref.id,
+    name = _ref.name,
+    _ref$value = _ref.value,
+    value = _ref$value === void 0 ? '' : _ref$value,
+    validations = _ref.validations,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
+  var _useFormContext = reactHookForm.useFormContext(),
+    register = _useFormContext.register,
+    errors = _useFormContext.formState.errors;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("select", _extends({
+    ref: ref,
+    id: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
+    name: name,
+    defaultValue: value,
+    "aria-invalid": errors[name] && 'true'
+  }, register(name, _extends({}, validations)), props), props.placeholder && /*#__PURE__*/React.createElement("option", {
+    disabled: validations === null || validations === void 0 ? void 0 : validations.required,
+    value: ""
+  }, props.placeholder), children));
+});
+
+Object.defineProperty(exports, 'FormProvider', {
+  enumerable: true,
+  get: function () {
+    return reactHookForm.FormProvider;
+  }
+});
+Object.defineProperty(exports, 'useController', {
+  enumerable: true,
+  get: function () {
+    return reactHookForm.useController;
+  }
+});
+Object.defineProperty(exports, 'useFieldArray', {
+  enumerable: true,
+  get: function () {
+    return reactHookForm.useFieldArray;
+  }
+});
+Object.defineProperty(exports, 'useForm', {
+  enumerable: true,
+  get: function () {
+    return reactHookForm.useForm;
+  }
+});
+Object.defineProperty(exports, 'useFormContext', {
+  enumerable: true,
+  get: function () {
+    return reactHookForm.useFormContext;
+  }
+});
+Object.defineProperty(exports, 'useFormState', {
+  enumerable: true,
+  get: function () {
+    return reactHookForm.useFormState;
+  }
+});
+Object.defineProperty(exports, 'useWatch', {
+  enumerable: true,
+  get: function () {
+    return reactHookForm.useWatch;
+  }
+});
 exports.Box = Box$1;
 exports.Button = Button$1;
 exports.Error = Error;
 exports.Flex = Flex$1;
 exports.FontAwesomeIcon = FontAwesomeIcon;
 exports.Form = Form;
+exports.GenericError = GenericError;
 exports.Grid = Grid$1;
 exports.Input = Input;
+exports.Label = Label;
 exports.NormalizeCss = NormalizeCss;
+exports.Select = Select;
 exports.Track = Track$1;
 exports._ = _$1;
 //# sourceMappingURL=index.js.map

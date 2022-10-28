@@ -7,13 +7,19 @@ import { NormalizeCss } from 'react-bee'
 /* Examples */
 import { FlexExample } from './FlexExample'
 import { GridExample } from './GridExample'
-import { HookForm } from './Form'
+import { CustomForm } from './CustomForm'
+import { FormValidation } from './FormValidation'
 
 const App = () => {
   return (
     <>
       <NormalizeCss />
-      <HookForm />
+
+      <CustomForm />
+      <br />
+      <br />
+      <hr />
+      <FormValidation />
       <br />
       <br />
       <hr />

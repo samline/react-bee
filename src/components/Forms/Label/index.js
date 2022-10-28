@@ -6,34 +6,32 @@ import { useFormContext } from 'react-hook-form'
 import { useId } from 'react-id-generator'
 
 /**
- * Input
+ * Label
+ * @param {children} children
  * @param {string} id
  * @param {string} name (required)
- * @param {string} value
- * @param {object} validations (Docs: https://react-hook-form.com/get-started#Applyvalidation)
+ * @param {string} content
  * @param {...any} props
  * @returns
  */
 
-export const Input = React.forwardRef(
-  ({ id, name, value, validations, ...props }, ref) => {
+export const Label = React.forwardRef(
+  ({ children, id, name, content, ...props }, ref) => {
     const {
-      register,
       formState: { errors }
     } = useFormContext()
 
     return (
       <React.Fragment>
         {name && (
-          <input
+          <label
             ref={ref}
-            id={id ? `${name}:${id}` : `${name}:${useId()}`}
-            name={name}
-            defaultValue={value}
+            htmlFor={id ? `${name}:${id}` : `${name}:${useId()}`}
             aria-invalid={errors[name] && 'true'}
-            {...register(name, { ...validations })}
             {...props}
-          />
+          >
+            {children ?? content}
+          </label>
         )}
       </React.Fragment>
     )

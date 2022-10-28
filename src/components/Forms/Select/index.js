@@ -6,7 +6,7 @@ import { useFormContext } from 'react-hook-form'
 import { useId } from 'react-id-generator'
 
 /**
- * Input
+ * Select
  * @param {string} id
  * @param {string} name (required)
  * @param {string} value
@@ -15,8 +15,8 @@ import { useId } from 'react-id-generator'
  * @returns
  */
 
-export const Input = React.forwardRef(
-  ({ id, name, value, validations, ...props }, ref) => {
+export const Select = React.forwardRef(
+  ({ children, id, name, value = '', validations, ...props }, ref) => {
     const {
       register,
       formState: { errors }
@@ -25,7 +25,7 @@ export const Input = React.forwardRef(
     return (
       <React.Fragment>
         {name && (
-          <input
+          <select
             ref={ref}
             id={id ? `${name}:${id}` : `${name}:${useId()}`}
             name={name}
@@ -33,9 +33,29 @@ export const Input = React.forwardRef(
             aria-invalid={errors[name] && 'true'}
             {...register(name, { ...validations })}
             {...props}
-          />
+          >
+            {props.placeholder && (
+              <option disabled={validations?.required} value=''>
+                {props.placeholder}
+              </option>
+            )}
+            {children}
+          </select>
         )}
       </React.Fragment>
     )
   }
 )
+
+/* TODO: styles for placeholder */
+/* <style>
+      select:required:invalid {
+        color: #666;
+      }
+      option[value=""][disabled] {
+        display: none;
+      }
+      option {
+        color: #000;
+      }
+    </style> */
