@@ -11,6 +11,7 @@ import {
   Input,
   InputFormat,
   Select,
+  Textarea,
   Error,
   GlobalError
 } from 'react-bee'
@@ -113,6 +114,9 @@ export const CustomForm = () => {
                 maxLength: 'No es una tarjeta válida'
               }}
             />
+          </Track>
+          <Track>
+          <Textarea name="textarea_input" value="Textarea content..." />
           </Track>
           <Track>
             <input type='submit' />

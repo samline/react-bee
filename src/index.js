@@ -17,6 +17,7 @@ import {
   Input,
   InputFormat,
   Select,
+  Textarea,
 
   /* React hook form */
   FormProvider,
@@ -58,6 +59,7 @@ export {
   Input,
   InputFormat,
   Select,
+  Textarea,
 
   /* React hook form */
   FormProvider,

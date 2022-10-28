@@ -17,6 +17,7 @@ import { Label } from './Label'
 import { Input } from './Input'
 import { InputFormat } from './InputFormat'
 import { Select } from './Select'
+import { Textarea } from './Textarea'
 
 export {
   Form,
@@ -26,6 +27,7 @@ export {
   Input,
   InputFormat,
   Select,
+  Textarea,
 
   /* React hook form */
   FormProvider,

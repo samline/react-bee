@@ -320,6 +320,26 @@ var Select = React.forwardRef(function (_ref, ref) {
   }, props.placeholder), children));
 });
 
+var _excluded$d = ["id", "name", "value", "validations"];
+
+var Textarea = React.forwardRef(function (_ref, ref) {
+  var id = _ref.id,
+    name = _ref.name,
+    value = _ref.value,
+    validations = _ref.validations,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$d);
+  var _useFormContext = reactHookForm.useFormContext(),
+    register = _useFormContext.register,
+    errors = _useFormContext.formState.errors;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("textarea", _extends({
+    ref: ref,
+    id: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
+    name: name,
+    defaultValue: value,
+    "aria-invalid": errors[name] && 'true'
+  }, register(name, _extends({}, validations)), props)));
+});
+
 Object.defineProperty(exports, 'Controller', {
   enumerable: true,
   get: function () {
@@ -381,6 +401,7 @@ exports.InputFormat = InputFormat;
 exports.Label = Label;
 exports.NormalizeCss = NormalizeCss;
 exports.Select = Select;
+exports.Textarea = Textarea;
 exports.Track = Track$1;
 exports._ = _$1;
 //# sourceMappingURL=index.js.map
