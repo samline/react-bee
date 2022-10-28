@@ -25,7 +25,7 @@ export const CustomForm = () => {
         <h2>Custom form</h2>
       </Track>
       <Form onSubmit={handleSubmit}>
-        <Flex alignItems='end'>
+        <Flex alignItems='start' flexDirection='column'>
           <Track>
             <Select
               name='select'
@@ -72,7 +72,7 @@ export const CustomForm = () => {
                 <Label id={i + 1} name='checkbox_label' content='checkbox' />
               </Track>
             ))}
-          {Array(5)
+          {Array(3)
             .fill()
             .map((empty, i) => (
               <Track key={i}>
@@ -81,7 +81,15 @@ export const CustomForm = () => {
               </Track>
             ))}
           <Track>
-            <Input type="file" name='input_file' placeholder='Select file' onChange={(e) => console.log(e.target)} />
+            <Input
+              type='file'
+              name='input_file'
+              placeholder='Select file'
+              onChange={(e) => console.log(e.target)}
+            />
+          </Track>
+          <Track>
+            <Input name='input_credit_card' placeholder='Credit card' />
           </Track>
           <Track>
             <input type='submit' />
