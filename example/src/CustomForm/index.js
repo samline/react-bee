@@ -9,9 +9,10 @@ import {
   Form,
   Label,
   Input,
+  InputFormat,
   Select,
   Error,
-  GenericError
+  GlobalError
 } from 'react-bee'
 
 export const CustomForm = () => {
@@ -68,6 +69,7 @@ export const CustomForm = () => {
                   name='checkbox_label'
                   value={i}
                   validations={{ required: true }}
+                  checked={i !== 1}
                 />
                 <Label id={i + 1} name='checkbox_label' content='checkbox' />
               </Track>
@@ -76,7 +78,13 @@ export const CustomForm = () => {
             .fill()
             .map((empty, i) => (
               <Track key={i}>
-                <Input type='radio' id={i + 1} name='radio_label' value={i} />
+                <Input
+                  type='radio'
+                  id={i + 1}
+                  name='radio_label'
+                  value={i}
+                  checked
+                />
                 <Label id={i + 1} name='radio_label' content='radio' />
               </Track>
             ))}
@@ -89,11 +97,26 @@ export const CustomForm = () => {
             />
           </Track>
           <Track>
-            <Input name='input_credit_card' placeholder='Credit card' />
+            <InputFormat
+              name='input_credit_card'
+              placeholder='Credit card'
+              format={{
+                creditCard: true
+              }}
+              value='5152313349701111'
+              validations={{ minLength: 4, maxLength: 19 }}
+            />
+            <Error
+              name='input_credit_card'
+              validations={{
+                minLength: 'No es una tarjeta válida',
+                maxLength: 'No es una tarjeta válida'
+              }}
+            />
           </Track>
           <Track>
             <input type='submit' />
-            <GenericError message='Hay errores en el formulario' />
+            <GlobalError message='Hay errores en el formulario' />
           </Track>
         </Flex>
       </Form>

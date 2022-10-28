@@ -12,9 +12,10 @@ import { FontAwesomeIcon } from './components/FontAwesomeIcon'
 import {
   Form,
   Error,
-  GenericError,
+  GlobalError,
   Label,
   Input,
+  InputFormat,
   Select,
 
   /* React hook form */
@@ -24,7 +25,8 @@ import {
   useController,
   useWatch,
   useFormState,
-  useFieldArray
+  useFieldArray,
+  Controller
 } from './components/Forms'
 
 export {
@@ -51,9 +53,10 @@ export {
   /* Form */
   Form,
   Error,
-  GenericError,
+  GlobalError,
   Label,
   Input,
+  InputFormat,
   Select,
 
   /* React hook form */
@@ -63,5 +66,6 @@ export {
   useController,
   useWatch,
   useFormState,
-  useFieldArray
+  useFieldArray,
+  Controller
 }

@@ -12,6 +12,7 @@ var freeRegularSvgIcons = require('@fortawesome/free-regular-svg-icons');
 var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
 var reactHookForm = require('react-hook-form');
 var reactIdGenerator = require('react-id-generator');
+var Cleave = _interopDefault(require('cleave.js/react'));
 
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
@@ -207,7 +208,7 @@ var Error = function Error(_ref) {
   }, props), ((_errors$name = errors[name]) === null || _errors$name === void 0 ? void 0 : _errors$name.type) === 'required' && validations.required, ((_errors$name2 = errors[name]) === null || _errors$name2 === void 0 ? void 0 : _errors$name2.type) === 'min' && validations.min, ((_errors$name3 = errors[name]) === null || _errors$name3 === void 0 ? void 0 : _errors$name3.type) === 'max' && validations.max, ((_errors$name4 = errors[name]) === null || _errors$name4 === void 0 ? void 0 : _errors$name4.type) === 'minLength' && validations.minLength, ((_errors$name5 = errors[name]) === null || _errors$name5 === void 0 ? void 0 : _errors$name5.type) === 'maxLength' && validations.maxLength, ((_errors$name6 = errors[name]) === null || _errors$name6 === void 0 ? void 0 : _errors$name6.type) === 'pattern' && validations.pattern, ((_errors$name7 = errors[name]) === null || _errors$name7 === void 0 ? void 0 : _errors$name7.type) === 'validate' && validations.validate, ((_errors$name8 = errors[name]) === null || _errors$name8 === void 0 ? void 0 : _errors$name8.type) === 'custom' && validations.custom));
 };
 
-var GenericError = function GenericError(_ref2) {
+var GlobalError = function GlobalError(_ref2) {
   var message = _ref2.message,
     props = _objectWithoutPropertiesLoose(_ref2, _excluded2$1);
   var _useFormContext2 = reactHookForm.useFormContext(),
@@ -254,7 +255,47 @@ var Input = React.forwardRef(function (_ref, ref) {
   }, register(name, _extends({}, validations)), props)));
 });
 
-var _excluded$b = ["children", "id", "name", "value", "validations"];
+var _excluded$b = ["id", "name", "value", "validations", "format"];
+
+var InputFormat = React.forwardRef(function (_ref, ref) {
+  var id = _ref.id,
+    name = _ref.name,
+    value = _ref.value,
+    validations = _ref.validations,
+    format = _ref.format,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
+  var _useFormContext = reactHookForm.useFormContext(),
+    control = _useFormContext.control,
+    setValue = _useFormContext.setValue,
+    errors = _useFormContext.formState.errors;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement(reactHookForm.Controller, {
+    control: control,
+    name: name,
+    rules: _extends({}, validations),
+    render: function render(_ref2) {
+      var _ref2$field = _ref2.field,
+        onChange = _ref2$field.onChange,
+        onBlur = _ref2$field.onBlur;
+      return /*#__PURE__*/React.createElement(Cleave, _extends({
+        ref: ref,
+        id: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
+        name: name,
+        "aria-invalid": errors[name] && 'true'
+        ,
+        onChange: onChange,
+        onBlur: onBlur,
+        onInit: function onInit(_ref3) {
+          var lastInputValue = _ref3.lastInputValue;
+          return setValue(name, lastInputValue);
+        },
+        options: _extends({}, format),
+        value: value
+      }, props));
+    }
+  }));
+});
+
+var _excluded$c = ["children", "id", "name", "value", "validations"];
 
 var Select = React.forwardRef(function (_ref, ref) {
   var children = _ref.children,
@@ -263,7 +304,7 @@ var Select = React.forwardRef(function (_ref, ref) {
     _ref$value = _ref.value,
     value = _ref$value === void 0 ? '' : _ref$value,
     validations = _ref.validations,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
   var _useFormContext = reactHookForm.useFormContext(),
     register = _useFormContext.register,
     errors = _useFormContext.formState.errors;
@@ -279,6 +320,12 @@ var Select = React.forwardRef(function (_ref, ref) {
   }, props.placeholder), children));
 });
 
+Object.defineProperty(exports, 'Controller', {
+  enumerable: true,
+  get: function () {
+    return reactHookForm.Controller;
+  }
+});
 Object.defineProperty(exports, 'FormProvider', {
   enumerable: true,
   get: function () {
@@ -327,9 +374,10 @@ exports.Error = Error;
 exports.Flex = Flex$1;
 exports.FontAwesomeIcon = FontAwesomeIcon;
 exports.Form = Form;
-exports.GenericError = GenericError;
+exports.GlobalError = GlobalError;
 exports.Grid = Grid$1;
 exports.Input = Input;
+exports.InputFormat = InputFormat;
 exports.Label = Label;
 exports.NormalizeCss = NormalizeCss;
 exports.Select = Select;

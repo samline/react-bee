@@ -6,22 +6,25 @@ import {
   useController,
   useWatch,
   useFormState,
-  useFieldArray
+  useFieldArray,
+  Controller
 } from 'react-hook-form'
 
 /* ./ */
 import { Form } from './Form'
-import { Error, GenericError } from './Error'
+import { Error, GlobalError } from './Error'
 import { Label } from './Label'
 import { Input } from './Input'
+import { InputFormat } from './InputFormat'
 import { Select } from './Select'
 
 export {
   Form,
   Error,
-  GenericError,
+  GlobalError,
   Label,
   Input,
+  InputFormat,
   Select,
 
   /* React hook form */
@@ -31,5 +34,6 @@ export {
   useController,
   useWatch,
   useFormState,
-  useFieldArray
+  useFieldArray,
+  Controller
 }

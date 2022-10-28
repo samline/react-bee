@@ -39,13 +39,13 @@ export const Error = ({ name, validations, ...props }) => {
 }
 
 /**
- * GenericError
+ * GlobalError
  * @param {string} message (required)
  * @param {...any} props
  * @returns
  */
 
-export const GenericError = ({ message, ...props }) => {
+export const GlobalError = ({ message, ...props }) => {
   const {
     formState: { errors }
   } = useFormContext()

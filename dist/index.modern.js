@@ -7,9 +7,10 @@ import { FontAwesomeIcon as FontAwesomeIcon$1 } from '@fortawesome/react-fontawe
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import { useForm, FormProvider, useFormContext } from 'react-hook-form';
-export { FormProvider, useController, useFieldArray, useForm, useFormContext, useFormState, useWatch } from 'react-hook-form';
+import { useForm, FormProvider, useFormContext, Controller } from 'react-hook-form';
+export { Controller, FormProvider, useController, useFieldArray, useForm, useFormContext, useFormState, useWatch } from 'react-hook-form';
 import { useId } from 'react-id-generator';
+import Cleave from 'cleave.js/react';
 
 const breakpoints = {
   _xs: '374px',
@@ -298,7 +299,7 @@ const Error = ({
   }, props), ((_errors$name = errors[name]) === null || _errors$name === void 0 ? void 0 : _errors$name.type) === 'required' && validations.required, ((_errors$name2 = errors[name]) === null || _errors$name2 === void 0 ? void 0 : _errors$name2.type) === 'min' && validations.min, ((_errors$name3 = errors[name]) === null || _errors$name3 === void 0 ? void 0 : _errors$name3.type) === 'max' && validations.max, ((_errors$name4 = errors[name]) === null || _errors$name4 === void 0 ? void 0 : _errors$name4.type) === 'minLength' && validations.minLength, ((_errors$name5 = errors[name]) === null || _errors$name5 === void 0 ? void 0 : _errors$name5.type) === 'maxLength' && validations.maxLength, ((_errors$name6 = errors[name]) === null || _errors$name6 === void 0 ? void 0 : _errors$name6.type) === 'pattern' && validations.pattern, ((_errors$name7 = errors[name]) === null || _errors$name7 === void 0 ? void 0 : _errors$name7.type) === 'validate' && validations.validate, ((_errors$name8 = errors[name]) === null || _errors$name8 === void 0 ? void 0 : _errors$name8.type) === 'custom' && validations.custom));
 };
 
-const GenericError = ({
+const GlobalError = ({
   message,
   ...props
 }) => {
@@ -355,6 +356,52 @@ const Input = React.forwardRef(({
   }), props)));
 });
 
+const InputFormat = React.forwardRef(({
+  id,
+  name,
+  value,
+  validations,
+  format,
+  ...props
+}, ref) => {
+  const {
+    control,
+    setValue,
+    formState: {
+      errors
+    }
+  } = useFormContext();
+  return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement(Controller, {
+    control: control,
+    name: name,
+    rules: {
+      ...validations
+    },
+    render: ({
+      field: {
+        onChange,
+        onBlur
+      }
+    }) => {
+      return /*#__PURE__*/React.createElement(Cleave, Object.assign({
+        ref: ref,
+        id: id ? `${name}:${id}` : `${name}:${useId()}`,
+        name: name,
+        "aria-invalid": errors[name] && 'true',
+        onChange: onChange,
+        onBlur: onBlur,
+        onInit: ({
+          lastInputValue
+        }) => setValue(name, lastInputValue),
+        options: {
+          ...format
+        },
+        value: value
+      }, props));
+    }
+  }));
+});
+
 const Select = React.forwardRef(({
   children,
   id,
@@ -383,5 +430,5 @@ const Select = React.forwardRef(({
   }, props.placeholder), children));
 });
 
-export { Box$1 as Box, Button$1 as Button, Error, Flex$1 as Flex, FontAwesomeIcon, Form, GenericError, Grid$1 as Grid, Input, Label, NormalizeCss, Select, Track$1 as Track, _$6 as _ };
+export { Box$1 as Box, Button$1 as Button, Error, Flex$1 as Flex, FontAwesomeIcon, Form, GlobalError, Grid$1 as Grid, Input, InputFormat, Label, NormalizeCss, Select, Track$1 as Track, _$6 as _ };
 //# sourceMappingURL=index.modern.js.map
