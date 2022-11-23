@@ -2,7 +2,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 /* Breakpoints */
-import breakpoints from './breakpoints'
+import { breakpoints } from './breakpoints'
 
 export const NormalizeCss = createGlobalStyle`
   :root {
@@ -90,3 +90,4 @@ export const NormalizeCss = createGlobalStyle`
     border-top: solid 1px;
   }
 `
+export { breakpoints }

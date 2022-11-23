@@ -12,4 +12,4 @@ const breakpoints = {
   xl: '1366px'
 }
 
-export default breakpoints
+export { breakpoints }

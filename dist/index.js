@@ -404,4 +404,5 @@ exports.Select = Select;
 exports.Textarea = Textarea;
 exports.Track = Track$1;
 exports._ = _$1;
+exports.breakpoints = breakpoints;
 //# sourceMappingURL=index.js.map

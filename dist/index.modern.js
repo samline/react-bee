@@ -338,5 +338,5 @@ var Textarea = React.forwardRef(function (_ref, ref) {
   }, register(name, _extends({}, validations)), props)));
 });
 
-export { Box$1 as Box, Button$1 as Button, Error, Flex$1 as Flex, FontAwesomeIcon, Form, GlobalError, Grid$1 as Grid, Input, InputFormat, Label, NormalizeCss, Select, Textarea, Track$1 as Track, _$1 as _ };
+export { Box$1 as Box, Button$1 as Button, Error, Flex$1 as Flex, FontAwesomeIcon, Form, GlobalError, Grid$1 as Grid, Input, InputFormat, Label, NormalizeCss, Select, Textarea, Track$1 as Track, _$1 as _, breakpoints };
 //# sourceMappingURL=index.modern.js.map
