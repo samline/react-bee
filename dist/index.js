@@ -28,6 +28,9 @@ function _extends() {
   };
   return _extends.apply(this, arguments);
 }
+function _objectDestructuringEmpty(obj) {
+  if (obj == null) throw new TypeError("Cannot destructure " + obj);
+}
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
   var target = {};
@@ -129,43 +132,34 @@ var _$1 = function _$1(_ref) {
   return /*#__PURE__*/React.createElement(_, props, children);
 };
 
-var _templateObject$6, _templateObject2$4;
-var Button = styled__default.a(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteralLoose(["\n  color: inherit;\n  cursor: pointer;\n  transition: all 0.2s ease;\n\n  ", "\n\n  ", "\n"])), function (props) {
-  return props.disabled && styled.css(_templateObject2$4 || (_templateObject2$4 = _taggedTemplateLiteralLoose(["\n      cursor: not-allowed;\n      filter: grayscale(100%);\n      opacity: 0.5;\n      pointer-events: none;\n    "])));
-}, ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
+var _excluded$5 = ["children", "label"],
+  _excluded2 = ["children", "label", "scroll"];
 
-var _excluded$5 = ["scroll"],
-  _excluded2 = ["children", "label"];
-
-var Button$1 = React.forwardRef(function (_ref, ref) {
-  var _ref$scroll = _ref.scroll,
-    scroll = _ref$scroll === void 0 ? true : _ref$scroll,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$5);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, (props.target || !props.href) && /*#__PURE__*/React.createElement(A, _extends({
-    ref: ref,
-    rel: props.target ? 'noreferrer noopener' : null
-  }, props)) || /*#__PURE__*/React.createElement(Link, {
-    href: props.href,
-    passHref: true,
-    scroll: scroll
-  }, /*#__PURE__*/React.createElement(A, _extends({
-    ref: ref
-  }, props))));
-});
-Button$1.displayName = 'Button';
-var A = React.forwardRef(function (_ref2, ref) {
+var Button = function Button(_ref) {
+  var props = _extends({}, (_objectDestructuringEmpty(_ref), _ref));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, (props.target || !props.href) && /*#__PURE__*/React.createElement(Anchor, props) || /*#__PURE__*/React.createElement(SPALink, props));
+};
+var Anchor = function Anchor(_ref2) {
   var children = _ref2.children,
     label = _ref2.label,
-    props = _objectWithoutPropertiesLoose(_ref2, _excluded2);
-  return /*#__PURE__*/React.createElement(Button, _extends({
-    ref: ref,
-    type: props.as === 'button' ? 'submit' : null
-  }, props), children && children || /*#__PURE__*/React.createElement("span", null, label));
-});
-A.displayName = 'A';
+    props = _objectWithoutPropertiesLoose(_ref2, _excluded$5);
+  return /*#__PURE__*/React.createElement("a", _extends({
+    rel: props.target ? 'noreferrer noopener' : null
+  }, props), children != null ? children : label);
+};
+var SPALink = function SPALink(_ref3) {
+  var children = _ref3.children,
+    label = _ref3.label,
+    _ref3$scroll = _ref3.scroll,
+    scroll = _ref3$scroll === void 0 ? true : _ref3$scroll,
+    props = _objectWithoutPropertiesLoose(_ref3, _excluded2);
+  return /*#__PURE__*/React.createElement(Link, _extends({
+    scroll: scroll
+  }, props), children != null ? children : label);
+};
 
-var _templateObject$7;
-var Icon = styled__default(reactFontawesome.FontAwesomeIcon)(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteralLoose(["\n  height: 1em;\n  ", "\n"])), ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
+var _templateObject$6;
+var Icon = styled__default(reactFontawesome.FontAwesomeIcon)(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteralLoose(["\n  height: 1em;\n  ", "\n"])), ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
 
 var _excluded$6 = ["icon", "lib"];
 
@@ -389,7 +383,7 @@ Object.defineProperty(exports, 'useWatch', {
   }
 });
 exports.Box = Box$1;
-exports.Button = Button$1;
+exports.Button = Button;
 exports.Error = Error;
 exports.Flex = Flex$1;
 exports.FontAwesomeIcon = FontAwesomeIcon;

@@ -1,6 +1,6 @@
 {
   "name": "react-bee",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Collection of tools for your react web application.",
   "author": {
     "name": "Samuel Olvera",
@@ -68,7 +68,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "cleave.js": "^1.6.0",
-    "next": "^12.3.1",
+    "next": "^13.0.4",
     "react-hook-form": "^7.37.0",
     "react-id-generator": "^3.0.2",
     "styled-components": "^5.3.6",

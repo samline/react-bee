@@ -2,9 +2,6 @@
 import React from 'react'
 import Link from 'next/link'
 
-/* Styles */
-import { Button as ButtonStyled } from './styles'
-
 /**
  * Button
  * @param {children}
@@ -14,43 +11,24 @@ import { Button as ButtonStyled } from './styles'
  * @param {boolean} scroll - Go to top on click - default: true
  * @param {...any} props
  * @returns component
- *
- * @styleSystem [color, layout, position, space, typography] - https://styled-system.com/table
  */
 
-/* TODO: refactor */
-/* TODO: replace styled components by jsx */
-
-export const Button = React.forwardRef(({ scroll = true, ...props }, ref) => {
+export const Button = ({ ...props }) => {
   return (
     <React.Fragment>
-      {((props.target || !props.href) && (
-        <A
-          ref={ref}
-          rel={props.target ? 'noreferrer noopener' : null}
-          {...props}
-        />
-      )) || (
-        <Link href={props.href} passHref scroll={scroll}>
-          <A ref={ref} {...props} />
-        </Link>
-      )}
+      {((props.target || !props.href) && <Anchor {...props} />) || (<SPALink {...props} />)}
     </React.Fragment>
   )
-})
+}
 
-Button.displayName = 'Button'
+const Anchor = ({ children, label, ...props }) => (
+  <a rel={props.target ? 'noreferrer noopener' : null} {...props}>
+    {children ?? label}
+  </a>
+)
 
-const A = React.forwardRef(({ children, label, ...props }, ref) => {
-  return (
-    <ButtonStyled
-      ref={ref}
-      type={props.as === 'button' ? 'submit' : null}
-      {...props}
-    >
-      {(children && children) || <span>{label}</span>}
-    </ButtonStyled>
-  )
-})
-
-A.displayName = 'A'
+const SPALink = ({ children, label, scroll = true, ...props }) => (
+  <Link scroll={scroll} {...props}>
+    {children ?? label}
+  </Link>
+)
