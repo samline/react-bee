@@ -4,7 +4,6 @@ var styled = require('styled-components');
 var styled__default = _interopDefault(styled);
 var React = _interopDefault(require('react'));
 var ss = require('styled-system');
-var Link = _interopDefault(require('next/link'));
 var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
 var reactFontawesome = require('@fortawesome/react-fontawesome');
 var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
@@ -27,9 +26,6 @@ function _extends() {
     return target;
   };
   return _extends.apply(this, arguments);
-}
-function _objectDestructuringEmpty(obj) {
-  if (obj == null) throw new TypeError("Cannot destructure " + obj);
 }
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
@@ -132,36 +128,10 @@ var _$1 = function _$1(_ref) {
   return /*#__PURE__*/React.createElement(_, props, children);
 };
 
-var _excluded$5 = ["children", "label"],
-  _excluded2 = ["children", "label", "scroll"];
-
-var Button = function Button(_ref) {
-  var props = _extends({}, (_objectDestructuringEmpty(_ref), _ref));
-  return /*#__PURE__*/React.createElement(React.Fragment, null, (props.target || !props.href) && /*#__PURE__*/React.createElement(Anchor, props) || /*#__PURE__*/React.createElement(SPALink, props));
-};
-var Anchor = function Anchor(_ref2) {
-  var children = _ref2.children,
-    label = _ref2.label,
-    props = _objectWithoutPropertiesLoose(_ref2, _excluded$5);
-  return /*#__PURE__*/React.createElement("a", _extends({
-    rel: props.target ? 'noreferrer noopener' : null
-  }, props), children != null ? children : /*#__PURE__*/React.createElement("span", null, label));
-};
-var SPALink = function SPALink(_ref3) {
-  var children = _ref3.children,
-    label = _ref3.label,
-    _ref3$scroll = _ref3.scroll,
-    scroll = _ref3$scroll === void 0 ? true : _ref3$scroll,
-    props = _objectWithoutPropertiesLoose(_ref3, _excluded2);
-  return /*#__PURE__*/React.createElement(Link, _extends({
-    scroll: scroll
-  }, props), children != null ? children : /*#__PURE__*/React.createElement("span", null, label));
-};
-
 var _templateObject$6;
 var Icon = styled__default(reactFontawesome.FontAwesomeIcon)(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteralLoose(["\n  height: 1em;\n  ", "\n"])), ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
 
-var _excluded$6 = ["icon", "lib"];
+var _excluded$5 = ["icon", "lib"];
 
 fontawesomeSvgCore.library.add(freeBrandsSvgIcons.fab, freeRegularSvgIcons.far, freeSolidSvgIcons.fas);
 
@@ -169,32 +139,32 @@ var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   var icon = _ref.icon,
     _ref$lib = _ref.lib,
     lib = _ref$lib === void 0 ? 'fas' : _ref$lib,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$5);
   return /*#__PURE__*/React.createElement(Icon, _extends({
     icon: [lib, icon]
   }, props));
 };
 
-var _excluded$7 = ["children", "onSubmit"];
+var _excluded$6 = ["children", "onSubmit"];
 
 var Form = function Form(_ref) {
   var children = _ref.children,
     onSubmit = _ref.onSubmit,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
   var methods = reactHookForm.useForm();
   return /*#__PURE__*/React.createElement(reactHookForm.FormProvider, methods, /*#__PURE__*/React.createElement("form", _extends({
     onSubmit: onSubmit && methods.handleSubmit(onSubmit)
   }, props), children));
 };
 
-var _excluded$8 = ["name", "validations"],
-  _excluded2$1 = ["message"];
+var _excluded$7 = ["name", "validations"],
+  _excluded2 = ["message"];
 
 var Error = function Error(_ref) {
   var _errors$name, _errors$name2, _errors$name3, _errors$name4, _errors$name5, _errors$name6, _errors$name7, _errors$name8;
   var name = _ref.name,
     validations = _ref.validations,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
   var _useFormContext = reactHookForm.useFormContext(),
     errors = _useFormContext.formState.errors;
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("span", _extends({
@@ -204,7 +174,7 @@ var Error = function Error(_ref) {
 
 var GlobalError = function GlobalError(_ref2) {
   var message = _ref2.message,
-    props = _objectWithoutPropertiesLoose(_ref2, _excluded2$1);
+    props = _objectWithoutPropertiesLoose(_ref2, _excluded2);
   var _useFormContext2 = reactHookForm.useFormContext(),
     errors = _useFormContext2.formState.errors;
   return /*#__PURE__*/React.createElement(React.Fragment, null, Object.keys(errors).length > 0 && message && /*#__PURE__*/React.createElement("span", _extends({
@@ -212,14 +182,14 @@ var GlobalError = function GlobalError(_ref2) {
   }, props), message));
 };
 
-var _excluded$9 = ["children", "id", "name", "content"];
+var _excluded$8 = ["children", "id", "name", "content"];
 
 var Label = React.forwardRef(function (_ref, ref) {
   var children = _ref.children,
     id = _ref.id,
     name = _ref.name,
     content = _ref.content,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
   var _useFormContext = reactHookForm.useFormContext(),
     errors = _useFormContext.formState.errors;
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("label", _extends({
@@ -229,14 +199,14 @@ var Label = React.forwardRef(function (_ref, ref) {
   }, props), children != null ? children : content));
 });
 
-var _excluded$a = ["id", "name", "value", "validations"];
+var _excluded$9 = ["id", "name", "value", "validations"];
 
 var Input = React.forwardRef(function (_ref, ref) {
   var id = _ref.id,
     name = _ref.name,
     value = _ref.value,
     validations = _ref.validations,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
   var _useFormContext = reactHookForm.useFormContext(),
     register = _useFormContext.register,
     errors = _useFormContext.formState.errors;
@@ -249,7 +219,7 @@ var Input = React.forwardRef(function (_ref, ref) {
   }, register(name, _extends({}, validations)), props)));
 });
 
-var _excluded$b = ["id", "name", "value", "validations", "format"];
+var _excluded$a = ["id", "name", "value", "validations", "format"];
 
 var InputFormat = React.forwardRef(function (_ref, ref) {
   var id = _ref.id,
@@ -257,7 +227,7 @@ var InputFormat = React.forwardRef(function (_ref, ref) {
     value = _ref.value,
     validations = _ref.validations,
     format = _ref.format,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
   var _useFormContext = reactHookForm.useFormContext(),
     control = _useFormContext.control,
     setValue = _useFormContext.setValue,
@@ -289,7 +259,7 @@ var InputFormat = React.forwardRef(function (_ref, ref) {
   }));
 });
 
-var _excluded$c = ["children", "id", "name", "value", "validations"];
+var _excluded$b = ["children", "id", "name", "value", "validations"];
 
 var Select = React.forwardRef(function (_ref, ref) {
   var children = _ref.children,
@@ -298,7 +268,7 @@ var Select = React.forwardRef(function (_ref, ref) {
     _ref$value = _ref.value,
     value = _ref$value === void 0 ? '' : _ref$value,
     validations = _ref.validations,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
   var _useFormContext = reactHookForm.useFormContext(),
     register = _useFormContext.register,
     errors = _useFormContext.formState.errors;
@@ -314,14 +284,14 @@ var Select = React.forwardRef(function (_ref, ref) {
   }, props.placeholder), children));
 });
 
-var _excluded$d = ["id", "name", "value", "validations"];
+var _excluded$c = ["id", "name", "value", "validations"];
 
 var Textarea = React.forwardRef(function (_ref, ref) {
   var id = _ref.id,
     name = _ref.name,
     value = _ref.value,
     validations = _ref.validations,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$d);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
   var _useFormContext = reactHookForm.useFormContext(),
     register = _useFormContext.register,
     errors = _useFormContext.formState.errors;
@@ -383,7 +353,6 @@ Object.defineProperty(exports, 'useWatch', {
   }
 });
 exports.Box = Box$1;
-exports.Button = Button;
 exports.Error = Error;
 exports.Flex = Flex$1;
 exports.FontAwesomeIcon = FontAwesomeIcon;

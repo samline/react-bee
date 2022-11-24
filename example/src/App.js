@@ -5,7 +5,6 @@ import React from 'react'
 import { NormalizeCss } from 'react-bee'
 
 /* Examples */
-import { Button } from './Button'
 import { FlexExample } from './FlexExample'
 import { GridExample } from './GridExample'
 import { CustomForm } from './CustomForm'
@@ -16,10 +15,6 @@ const App = () => {
     <>
       <NormalizeCss />
 
-      <Button />
-      <br />
-      <br />
-      <hr />
       <CustomForm />
       <br />
       <br />

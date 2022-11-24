@@ -1,9 +1,9 @@
 /* Default */
 import React from 'react'
-import Link from 'next/link'
+import NextLink from 'next/link'
 
 /**
- * Button
+ * Link
  * @param {children}
  * @param {string} label - Label to display in the button - disabled if has children
  * @param {string} href - Href of the link
@@ -13,7 +13,7 @@ import Link from 'next/link'
  * @returns component
  */
 
-export const Button = ({ ...props }) => {
+export const Link = ({ ...props }) => {
   return (
     <React.Fragment>
       {((props.target || !props.href) && <Anchor {...props} />) || (<SPALink {...props} />)}
@@ -28,7 +28,7 @@ const Anchor = ({ children, label, ...props }) => (
 )
 
 const SPALink = ({ children, label, scroll = true, ...props }) => (
-  <Link scroll={scroll} {...props}>
+  <NextLink scroll={scroll} {...props}>
     {children ?? <span>{label}</span>}
-  </Link>
+  </NextLink>
 )

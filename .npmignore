@@ -43,3 +43,6 @@ package-lock.json
 tests/_output/*
 Thumbs.db
 yarn-error.log
+
+# folders
+nextjs
