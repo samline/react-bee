@@ -23,12 +23,12 @@ export const Button = ({ ...props }) => {
 
 const Anchor = ({ children, label, ...props }) => (
   <a rel={props.target ? 'noreferrer noopener' : null} {...props}>
-    {children ?? label}
+    {children ?? <span>{label}</span>}
   </a>
 )
 
 const SPALink = ({ children, label, scroll = true, ...props }) => (
   <Link scroll={scroll} {...props}>
-    {children ?? label}
+    {children ?? <span>{label}</span>}
   </Link>
 )

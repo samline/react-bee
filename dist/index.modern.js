@@ -143,7 +143,7 @@ var Anchor = function Anchor(_ref2) {
     props = _objectWithoutPropertiesLoose(_ref2, _excluded$5);
   return /*#__PURE__*/React.createElement("a", _extends({
     rel: props.target ? 'noreferrer noopener' : null
-  }, props), children != null ? children : label);
+  }, props), children != null ? children : /*#__PURE__*/React.createElement("span", null, label));
 };
 var SPALink = function SPALink(_ref3) {
   var children = _ref3.children,
@@ -153,7 +153,7 @@ var SPALink = function SPALink(_ref3) {
     props = _objectWithoutPropertiesLoose(_ref3, _excluded2);
   return /*#__PURE__*/React.createElement(Link, _extends({
     scroll: scroll
-  }, props), children != null ? children : label);
+  }, props), children != null ? children : /*#__PURE__*/React.createElement("span", null, label));
 };
 
 var _templateObject$6;
