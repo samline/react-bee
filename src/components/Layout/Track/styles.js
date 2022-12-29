@@ -25,6 +25,7 @@ export const Track = styled.div`
     ss.grid,
     ss.layout,
     ss.space,
+    ss.position,
     ss.typography
   )}
 `

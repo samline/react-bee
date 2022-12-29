@@ -107,7 +107,7 @@ var Track = styled__default.div(_templateObject$4 || (_templateObject$4 = _tagge
   return props.show && styled.css(_templateObject2$3 || (_templateObject2$3 = _taggedTemplateLiteralLoose(["\n      outline: 2px dashed;\n    "])));
 }, function (props) {
   return props.inner && styled.css(_templateObject3 || (_templateObject3 = _taggedTemplateLiteralLoose(["\n      padding: 0rem;\n    "])));
-}, ss.compose(ss.background, ss.border, ss.color, ss.flexbox, ss.grid, ss.layout, ss.space, ss.typography));
+}, ss.compose(ss.background, ss.border, ss.color, ss.flexbox, ss.grid, ss.layout, ss.space, ss.position, ss.typography));
 
 var _excluded$3 = ["children"];
 

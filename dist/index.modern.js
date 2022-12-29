@@ -105,7 +105,7 @@ var Track = styled.div(_templateObject$4 || (_templateObject$4 = _taggedTemplate
   return props.show && css(_templateObject2$3 || (_templateObject2$3 = _taggedTemplateLiteralLoose(["\n      outline: 2px dashed;\n    "])));
 }, function (props) {
   return props.inner && css(_templateObject3 || (_templateObject3 = _taggedTemplateLiteralLoose(["\n      padding: 0rem;\n    "])));
-}, compose(background, border, color, flexbox, grid, layout, space, typography));
+}, compose(background, border, color, flexbox, grid, layout, space, position, typography));
 
 var _excluded$3 = ["children"];
 
