@@ -10,32 +10,42 @@ import { useId } from 'react-id-generator'
  * @param {string} id
  * @param {string} name (required)
  * @param {string} value
+ * @param {reference} innerRef - you can still assign to ref
  * @param {object} validations (Docs: https://react-hook-form.com/get-started#Applyvalidation)
  * @param {...any} props
  * @returns
  */
 
-export const Textarea = React.forwardRef(
-  ({ id, name, value, validations, ...props }, ref) => {
-    const {
-      register,
-      formState: { errors }
-    } = useFormContext()
+export const Textarea = ({
+  id,
+  name,
+  value,
+  validations,
+  innerRef,
+  ...props
+}) => {
+  const {
+    register,
+    formState: { errors }
+  } = useFormContext()
+  const { ref, ...rest } = register(name, { ...validations })
 
-    return (
-      <React.Fragment>
-        {name && (
-          <textarea
-            ref={ref}
-            id={id ? `${name}:${id}` : `${name}:${useId()}`}
-            name={name}
-            defaultValue={value}
-            aria-invalid={errors[name] && 'true'}
-            {...register(name, { ...validations })}
-            {...props}
-          ></textarea>
-        )}
-      </React.Fragment>
-    )
-  }
-)
+  return (
+    <React.Fragment>
+      {name && (
+        <textarea
+          id={id ? `${name}:${id}` : `${name}:${useId()}`}
+          name={name}
+          defaultValue={value}
+          aria-invalid={errors[name] && 'true'}
+          ref={(e) => {
+            ref(e)
+            if (innerRef) innerRef.current = e
+          }}
+          {...rest}
+          {...props}
+        ></textarea>
+      )}
+    </React.Fragment>
+  )
+}

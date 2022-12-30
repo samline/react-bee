@@ -1,5 +1,5 @@
 /* Default */
-import React from 'react'
+import React, { useRef } from 'react'
 
 /* Packages */
 import {
@@ -17,6 +17,9 @@ import {
 } from 'react-bee'
 
 export const CustomForm = () => {
+  const select = useRef(null)
+  const creditCard = useRef(null)
+
   const handleSubmit = (data) => {
     console.log('🚀 ~ file: index.js ~ line 9 ~ handleSubmit ~ data', data)
   }
@@ -30,9 +33,16 @@ export const CustomForm = () => {
         <Flex alignItems='start' flexDirection='column'>
           <Track>
             <Select
+              innerRef={select}
               name='select'
               validations={{ required: true }}
               placeholder='Select an option'
+              onChange={() =>
+                console.log(
+                  '🚀 ~ file: index.js:21 ~ CustomForm ~ select',
+                  select.current
+                )
+              }
             >
               <option value='option-1'>Option 1</option>
               <option value='option-2'>Option 2</option>
@@ -99,6 +109,7 @@ export const CustomForm = () => {
           </Track>
           <Track>
             <InputFormat
+              innerRef={creditCard}
               name='input_credit_card'
               placeholder='Credit card'
               format={{
@@ -106,6 +117,12 @@ export const CustomForm = () => {
               }}
               value='5152313349701111'
               validations={{ minLength: 4, maxLength: 19 }}
+              // onChange={() =>
+              //   console.log(
+              //     '🚀 ~ file: index.js:21 ~ CustomForm ~ select',
+              //     creditCard.current.element
+              //   )
+              // }
             />
             <Error
               name='input_credit_card'
@@ -116,7 +133,7 @@ export const CustomForm = () => {
             />
           </Track>
           <Track>
-          <Textarea name="textarea_input" value="Textarea content..." />
+            <Textarea name='textarea_input' value='Textarea content...' />
           </Track>
           <Track>
             <input type='submit' />

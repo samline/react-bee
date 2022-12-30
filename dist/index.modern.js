@@ -197,34 +197,43 @@ var Label = React.forwardRef(function (_ref, ref) {
   }, props), children != null ? children : content));
 });
 
-var _excluded$9 = ["id", "name", "value", "validations"];
+var _excluded$9 = ["id", "name", "value", "validations", "innerRef"],
+  _excluded2$1 = ["ref"];
 
-var Input = React.forwardRef(function (_ref, ref) {
+var Input = function Input(_ref) {
   var id = _ref.id,
     name = _ref.name,
     value = _ref.value,
     validations = _ref.validations,
+    innerRef = _ref.innerRef,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
   var _useFormContext = useFormContext(),
     register = _useFormContext.register,
     errors = _useFormContext.formState.errors;
+  var _register = register(name, _extends({}, validations)),
+    _ref2 = _register.ref,
+    rest = _objectWithoutPropertiesLoose(_register, _excluded2$1);
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("input", _extends({
-    ref: ref,
     id: id ? name + ":" + id : name + ":" + useId(),
     name: name,
     defaultValue: value,
-    "aria-invalid": errors[name] && 'true'
-  }, register(name, _extends({}, validations)), props)));
-});
+    "aria-invalid": errors[name] && 'true',
+    ref: function ref(e) {
+      _ref2(e);
+      if (innerRef) innerRef.current = e;
+    }
+  }, rest, props)));
+};
 
-var _excluded$a = ["id", "name", "value", "validations", "format"];
+var _excluded$a = ["id", "name", "value", "validations", "format", "innerRef"];
 
-var InputFormat = React.forwardRef(function (_ref, ref) {
+var InputFormat = function InputFormat(_ref) {
   var id = _ref.id,
     name = _ref.name,
     value = _ref.value,
     validations = _ref.validations,
     format = _ref.format,
+    innerRef = _ref.innerRef,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
   var _useFormContext = useFormContext(),
     control = _useFormContext.control,
@@ -239,7 +248,9 @@ var InputFormat = React.forwardRef(function (_ref, ref) {
         onChange = _ref2$field.onChange,
         onBlur = _ref2$field.onBlur;
       return /*#__PURE__*/React.createElement(Cleave, _extends({
-        ref: ref,
+        ref: function ref(e) {
+          return innerRef ? innerRef.current = e : null;
+        },
         id: id ? name + ":" + id : name + ":" + useId(),
         name: name,
         "aria-invalid": errors[name] && 'true'
@@ -255,52 +266,68 @@ var InputFormat = React.forwardRef(function (_ref, ref) {
       }, props));
     }
   }));
-});
+};
 
-var _excluded$b = ["children", "id", "name", "value", "validations"];
+var _excluded$b = ["children", "id", "name", "value", "validations", "innerRef"],
+  _excluded2$2 = ["ref"];
 
-var Select = React.forwardRef(function (_ref, ref) {
+var Select = function Select(_ref) {
   var children = _ref.children,
     id = _ref.id,
     name = _ref.name,
     _ref$value = _ref.value,
     value = _ref$value === void 0 ? '' : _ref$value,
     validations = _ref.validations,
+    innerRef = _ref.innerRef,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
   var _useFormContext = useFormContext(),
     register = _useFormContext.register,
     errors = _useFormContext.formState.errors;
+  var _register = register(name, _extends({}, validations)),
+    _ref2 = _register.ref,
+    rest = _objectWithoutPropertiesLoose(_register, _excluded2$2);
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("select", _extends({
-    ref: ref,
     id: id ? name + ":" + id : name + ":" + useId(),
     name: name,
     defaultValue: value,
-    "aria-invalid": errors[name] && 'true'
-  }, register(name, _extends({}, validations)), props), props.placeholder && /*#__PURE__*/React.createElement("option", {
+    "aria-invalid": errors[name] && 'true',
+    ref: function ref(e) {
+      _ref2(e);
+      if (innerRef) innerRef.current = e;
+    }
+  }, rest, props), props.placeholder && /*#__PURE__*/React.createElement("option", {
     disabled: validations === null || validations === void 0 ? void 0 : validations.required,
     value: ""
   }, props.placeholder), children));
-});
+};
 
-var _excluded$c = ["id", "name", "value", "validations"];
+var _excluded$c = ["id", "name", "value", "validations", "innerRef"],
+  _excluded2$3 = ["ref"];
 
-var Textarea = React.forwardRef(function (_ref, ref) {
+var Textarea = function Textarea(_ref) {
   var id = _ref.id,
     name = _ref.name,
     value = _ref.value,
     validations = _ref.validations,
+    innerRef = _ref.innerRef,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
   var _useFormContext = useFormContext(),
     register = _useFormContext.register,
     errors = _useFormContext.formState.errors;
+  var _register = register(name, _extends({}, validations)),
+    _ref2 = _register.ref,
+    rest = _objectWithoutPropertiesLoose(_register, _excluded2$3);
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("textarea", _extends({
-    ref: ref,
     id: id ? name + ":" + id : name + ":" + useId(),
     name: name,
     defaultValue: value,
-    "aria-invalid": errors[name] && 'true'
-  }, register(name, _extends({}, validations)), props)));
-});
+    "aria-invalid": errors[name] && 'true',
+    ref: function ref(e) {
+      _ref2(e);
+      if (innerRef) innerRef.current = e;
+    }
+  }, rest, props)));
+};
 
 export { Box$1 as Box, Error, Flex$1 as Flex, FontAwesomeIcon, Form, GlobalError, Grid$1 as Grid, Input, InputFormat, Label, NormalizeCss, Select, Textarea, Track$1 as Track, _$1 as _, breakpoints };
 //# sourceMappingURL=index.modern.js.map
