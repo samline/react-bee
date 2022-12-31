@@ -1,5 +1,5 @@
 /* Default */
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 /* Packages */
 import {
@@ -19,10 +19,15 @@ import {
 export const CustomForm = () => {
   const select = useRef(null)
   const creditCard = useRef(null)
+  const label = useRef(null)
 
   const handleSubmit = (data) => {
     console.log('🚀 ~ file: index.js ~ line 9 ~ handleSubmit ~ data', data)
   }
+
+  useEffect(() => {
+    // console.log(label.current)
+  }, [])
 
   return (
     <Box>
@@ -67,7 +72,7 @@ export const CustomForm = () => {
             </Select>
           </Track>
           <Track>
-            <Label id='customId' name='input_label' content='Label' />
+            <Label  id='customId' name='input_label' content='Label' />
             <Input id='customId' name='input_label' placeholder='With label' />
           </Track>
           {Array(3)

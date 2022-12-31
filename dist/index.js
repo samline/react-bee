@@ -145,15 +145,19 @@ var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   }, props));
 };
 
-var _excluded$6 = ["children", "onSubmit"];
+var _excluded$6 = ["children", "onSubmit", "innerRef"];
 
 var Form = function Form(_ref) {
   var children = _ref.children,
     onSubmit = _ref.onSubmit,
+    innerRef = _ref.innerRef,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
   var methods = reactHookForm.useForm();
   return /*#__PURE__*/React.createElement(reactHookForm.FormProvider, methods, /*#__PURE__*/React.createElement("form", _extends({
-    onSubmit: onSubmit && methods.handleSubmit(onSubmit)
+    onSubmit: onSubmit && methods.handleSubmit(onSubmit),
+    ref: function ref(e) {
+      return innerRef ? innerRef.current = e : null;
+    }
   }, props), children));
 };
 
@@ -182,22 +186,25 @@ var GlobalError = function GlobalError(_ref2) {
   }, props), message));
 };
 
-var _excluded$8 = ["children", "id", "name", "content"];
+var _excluded$8 = ["children", "id", "name", "content", "innerRef"];
 
-var Label = React.forwardRef(function (_ref, ref) {
+var Label = function Label(_ref) {
   var children = _ref.children,
     id = _ref.id,
     name = _ref.name,
     content = _ref.content,
+    innerRef = _ref.innerRef,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
   var _useFormContext = reactHookForm.useFormContext(),
     errors = _useFormContext.formState.errors;
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("label", _extends({
-    ref: ref,
+    ref: function ref(e) {
+      return innerRef ? innerRef.current = e : null;
+    },
     htmlFor: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
     "aria-invalid": errors[name] && 'true'
   }, props), children != null ? children : content));
-});
+};
 
 var _excluded$9 = ["id", "name", "value", "validations", "innerRef"],
   _excluded2$1 = ["ref"];

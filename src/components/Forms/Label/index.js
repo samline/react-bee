@@ -11,29 +11,28 @@ import { useId } from 'react-id-generator'
  * @param {string} id
  * @param {string} name (required)
  * @param {string} content
+ * @param {reference} innerRef - you can still assign to ref
  * @param {...any} props
  * @returns
  */
 
-export const Label = React.forwardRef(
-  ({ children, id, name, content, ...props }, ref) => {
-    const {
-      formState: { errors }
-    } = useFormContext()
+export const Label = ({ children, id, name, content, innerRef, ...props }) => {
+  const {
+    formState: { errors }
+  } = useFormContext()
 
-    return (
-      <React.Fragment>
-        {name && (
-          <label
-            ref={ref}
-            htmlFor={id ? `${name}:${id}` : `${name}:${useId()}`}
-            aria-invalid={errors[name] && 'true'}
-            {...props}
-          >
-            {children ?? content}
-          </label>
-        )}
-      </React.Fragment>
-    )
-  }
-)
+  return (
+    <React.Fragment>
+      {name && (
+        <label
+          ref={(e) => (innerRef ? (innerRef.current = e) : null)}
+          htmlFor={id ? `${name}:${id}` : `${name}:${useId()}`}
+          aria-invalid={errors[name] && 'true'}
+          {...props}
+        >
+          {children ?? content}
+        </label>
+      )}
+    </React.Fragment>
+  )
+}
