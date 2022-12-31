@@ -14,8 +14,9 @@ import Cleave from 'cleave.js/react'
  * @param {reference} innerRef - you can still assign to ref
  * @param {object} validations (Docs: https://react-hook-form.com/get-started#Applyvalidation)
  * @param {object} format - (e.g. { creditCard: true, ... }) - (Docs: https://nosir.github.io/cleave.js/)
+ * @param {boolean} rawValue - set rawValue as value instead formatted value - default: false
  * @param {...any} props
- * @returns
+ * @returns (formatted value or raw value)
  */
 
 export const InputFormat = ({
@@ -24,6 +25,7 @@ export const InputFormat = ({
   value,
   validations,
   format,
+  rawValue,
   innerRef,
   ...props
 }) => {
@@ -47,14 +49,29 @@ export const InputFormat = ({
                 id={id ? `${name}:${id}` : `${name}:${useId()}`}
                 name={name}
                 aria-invalid={errors[name] && 'true'}
+
                 // cleavejs
-                onChange={onChange}
-                onBlur={onBlur}
-                onInit={({ lastInputValue }) => setValue(name, lastInputValue)}
                 options={{ ...format }}
                 value={value}
                 // end cleavejs
+
                 {...props}
+
+                // mix
+                onInit={({ getRawValue, lastInputValue }) => {
+                  setValue(name, rawValue ? getRawValue() : lastInputValue)
+                }}
+                onChange={(e) => {
+                  onChange(e)
+                  setValue(name, rawValue ? e.target.rawValue : e.target.value)
+                  props.onChange && props.onChange(e)
+                }}
+                onBlur={(e) => {
+                  onBlur(e)
+                  setValue(name, rawValue ? e.target.rawValue : e.target.value)
+                  props.onBlur && props.onBlur(e)
+                }}
+                // end mix
               />
             )
           }}

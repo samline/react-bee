@@ -29,7 +29,7 @@ export const Select = ({
     register,
     formState: { errors }
   } = useFormContext()
-  const { ref, ...rest } = register(name, { ...validations })
+  const { ref, onChange, onBlur, ...rest } = register(name, { ...validations })
 
   return (
     <React.Fragment>
@@ -45,6 +45,14 @@ export const Select = ({
           }}
           {...rest}
           {...props}
+          onChange={(e) => {
+            onChange(e)
+            props.onChange && props.onChange(e)
+          }}
+          onBlur={(e) => {
+            onBlur(e)
+            props.onBlur && props.onBlur(e)
+          }}
         >
           {props.placeholder && (
             <option disabled={validations?.required} value=''>

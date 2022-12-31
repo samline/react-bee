@@ -30,11 +30,8 @@ export const CustomForm = () => {
         <h2>Custom form</h2>
       </Track>
       <Form
-        autoSubmit
+        // autoSubmit
         onSubmit={handleSubmit}
-        // onChange={(t, m) => {
-        //   m.handleSubmit((data, e) => handleSubmit(data, e, m))()
-        // }}
         defaultValues={{ checkbox_label: ['1'], radio_label: '1' }}
       >
         <Flex alignItems='start' flexDirection='column'>
@@ -103,6 +100,7 @@ export const CustomForm = () => {
           </Track>
           <Track>
             <InputFormat
+              rawValue
               innerRef={creditCard}
               name='input_credit_card'
               placeholder='Credit card'
@@ -111,12 +109,14 @@ export const CustomForm = () => {
               }}
               value='5152313349701111'
               validations={{ minLength: 4, maxLength: 19 }}
-              // onChange={() =>
-              //   console.log(
-              //     '🚀 ~ file: index.js:21 ~ CustomForm ~ select',
-              //     creditCard.current.element
-              //   )
-              // }
+              onChange={(e) =>
+                console.log(
+                  'formatValue:',
+                  e.target.value,
+                  '- rawValue:',
+                  e.target.rawValue
+                )
+              }
             />
             <Error
               name='input_credit_card'

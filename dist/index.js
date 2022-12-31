@@ -226,7 +226,7 @@ var Label = function Label(_ref) {
 };
 
 var _excluded$9 = ["id", "name", "value", "validations", "innerRef"],
-  _excluded2$1 = ["ref"];
+  _excluded2$1 = ["ref", "onChange", "onBlur"];
 
 var Input = function Input(_ref) {
   var id = _ref.id,
@@ -240,6 +240,8 @@ var Input = function Input(_ref) {
     errors = _useFormContext.formState.errors;
   var _register = register(name, _extends({}, validations)),
     _ref2 = _register.ref,
+    _onChange = _register.onChange,
+    _onBlur = _register.onBlur,
     rest = _objectWithoutPropertiesLoose(_register, _excluded2$1);
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("input", _extends({
     id: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
@@ -250,10 +252,19 @@ var Input = function Input(_ref) {
       _ref2(e);
       if (innerRef) innerRef.current = e;
     }
-  }, rest, props)));
+  }, rest, props, {
+    onChange: function onChange(e) {
+      _onChange(e);
+      props.onChange && props.onChange(e);
+    },
+    onBlur: function onBlur(e) {
+      _onBlur(e);
+      props.onBlur && props.onBlur(e);
+    }
+  })));
 };
 
-var _excluded$a = ["id", "name", "value", "validations", "format", "innerRef"];
+var _excluded$a = ["id", "name", "value", "validations", "format", "rawValue", "innerRef"];
 
 var InputFormat = function InputFormat(_ref) {
   var id = _ref.id,
@@ -261,6 +272,7 @@ var InputFormat = function InputFormat(_ref) {
     value = _ref.value,
     validations = _ref.validations,
     format = _ref.format,
+    rawValue = _ref.rawValue,
     innerRef = _ref.innerRef,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
   var _useFormContext = reactHookForm.useFormContext(),
@@ -273,8 +285,8 @@ var InputFormat = function InputFormat(_ref) {
     rules: _extends({}, validations),
     render: function render(_ref2) {
       var _ref2$field = _ref2.field,
-        onChange = _ref2$field.onChange,
-        onBlur = _ref2$field.onBlur;
+        _onChange = _ref2$field.onChange,
+        _onBlur = _ref2$field.onBlur;
       return /*#__PURE__*/React.createElement(Cleave, _extends({
         ref: function ref(e) {
           return innerRef ? innerRef.current = e : null;
@@ -282,22 +294,33 @@ var InputFormat = function InputFormat(_ref) {
         id: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
         name: name,
         "aria-invalid": errors[name] && 'true'
+
         ,
-        onChange: onChange,
-        onBlur: onBlur,
-        onInit: function onInit(_ref3) {
-          var lastInputValue = _ref3.lastInputValue;
-          return setValue(name, lastInputValue);
-        },
         options: _extends({}, format),
         value: value
-      }, props));
+      }, props, {
+        onInit: function onInit(_ref3) {
+          var getRawValue = _ref3.getRawValue,
+            lastInputValue = _ref3.lastInputValue;
+          setValue(name, rawValue ? getRawValue() : lastInputValue);
+        },
+        onChange: function onChange(e) {
+          _onChange(e);
+          setValue(name, rawValue ? e.target.rawValue : e.target.value);
+          props.onChange && props.onChange(e);
+        },
+        onBlur: function onBlur(e) {
+          _onBlur(e);
+          setValue(name, rawValue ? e.target.rawValue : e.target.value);
+          props.onBlur && props.onBlur(e);
+        }
+      }));
     }
   }));
 };
 
 var _excluded$b = ["children", "id", "name", "value", "validations", "innerRef"],
-  _excluded2$2 = ["ref"];
+  _excluded2$2 = ["ref", "onChange", "onBlur"];
 
 var Select = function Select(_ref) {
   var children = _ref.children,
@@ -313,6 +336,8 @@ var Select = function Select(_ref) {
     errors = _useFormContext.formState.errors;
   var _register = register(name, _extends({}, validations)),
     _ref2 = _register.ref,
+    _onChange = _register.onChange,
+    _onBlur = _register.onBlur,
     rest = _objectWithoutPropertiesLoose(_register, _excluded2$2);
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("select", _extends({
     id: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
@@ -323,14 +348,23 @@ var Select = function Select(_ref) {
       _ref2(e);
       if (innerRef) innerRef.current = e;
     }
-  }, rest, props), props.placeholder && /*#__PURE__*/React.createElement("option", {
+  }, rest, props, {
+    onChange: function onChange(e) {
+      _onChange(e);
+      props.onChange && props.onChange(e);
+    },
+    onBlur: function onBlur(e) {
+      _onBlur(e);
+      props.onBlur && props.onBlur(e);
+    }
+  }), props.placeholder && /*#__PURE__*/React.createElement("option", {
     disabled: validations === null || validations === void 0 ? void 0 : validations.required,
     value: ""
   }, props.placeholder), children));
 };
 
 var _excluded$c = ["id", "name", "value", "validations", "innerRef"],
-  _excluded2$3 = ["ref"];
+  _excluded2$3 = ["ref", "onChange", "onBlur"];
 
 var Textarea = function Textarea(_ref) {
   var id = _ref.id,
@@ -344,6 +378,8 @@ var Textarea = function Textarea(_ref) {
     errors = _useFormContext.formState.errors;
   var _register = register(name, _extends({}, validations)),
     _ref2 = _register.ref,
+    _onChange = _register.onChange,
+    _onBlur = _register.onBlur,
     rest = _objectWithoutPropertiesLoose(_register, _excluded2$3);
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("textarea", _extends({
     id: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
@@ -354,7 +390,16 @@ var Textarea = function Textarea(_ref) {
       _ref2(e);
       if (innerRef) innerRef.current = e;
     }
-  }, rest, props)));
+  }, rest, props, {
+    onChange: function onChange(e) {
+      _onChange(e);
+      props.onChange && props.onChange(e);
+    },
+    onBlur: function onBlur(e) {
+      _onBlur(e);
+      props.onBlur && props.onBlur(e);
+    }
+  })));
 };
 
 Object.defineProperty(exports, 'Controller', {

@@ -29,9 +29,7 @@ export const Form = ({
   ...props
 }) => {
   const methods = useForm({ defaultValues: defaultValues ?? {} })
-  const doSubmit = methods.handleSubmit((data, e) =>
-    onSubmit({ data: data, methods: methods, e: e })
-  )
+  const doSubmit = methods.handleSubmit((data, e) => onSubmit({ data: data, methods: methods, e: e }))
 
   return (
     <FormProvider {...methods}>
