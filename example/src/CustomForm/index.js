@@ -1,5 +1,5 @@
 /* Default */
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 
 /* Packages */
 import {
@@ -19,35 +19,31 @@ import {
 export const CustomForm = () => {
   const select = useRef(null)
   const creditCard = useRef(null)
-  const label = useRef(null)
 
-  const handleSubmit = (data) => {
-    console.log('🚀 ~ file: index.js ~ line 9 ~ handleSubmit ~ data', data)
+  const handleSubmit = (data, e, methods) => {
+    console.log(data)
+    console.log(e)
+    console.log(methods)
+
+    methods.reset()
   }
-
-  useEffect(() => {
-    // console.log(label.current)
-  }, [])
 
   return (
     <Box>
       <Track>
         <h2>Custom form</h2>
       </Track>
-      <Form onSubmit={handleSubmit}>
+      <Form
+        onSubmit={handleSubmit}
+        defaultValues={{ checkbox_label: ['1'], radio_label: '1' }}
+      >
         <Flex alignItems='start' flexDirection='column'>
           <Track>
             <Select
               innerRef={select}
               name='select'
-              validations={{ required: true }}
+              validations={{ required: false }}
               placeholder='Select an option'
-              onChange={() =>
-                console.log(
-                  '🚀 ~ file: index.js:21 ~ CustomForm ~ select',
-                  select.current
-                )
-              }
             >
               <option value='option-1'>Option 1</option>
               <option value='option-2'>Option 2</option>
@@ -72,7 +68,7 @@ export const CustomForm = () => {
             </Select>
           </Track>
           <Track>
-            <Label  id='customId' name='input_label' content='Label' />
+            <Label id='customId' name='input_label' content='Label' />
             <Input id='customId' name='input_label' placeholder='With label' />
           </Track>
           {Array(3)
@@ -82,10 +78,9 @@ export const CustomForm = () => {
                 <Input
                   type='checkbox'
                   id={i + 1}
-                  name='checkbox_label'
+                  name={`checkbox_label`}
                   value={i}
                   validations={{ required: true }}
-                  checked={i !== 1}
                 />
                 <Label id={i + 1} name='checkbox_label' content='checkbox' />
               </Track>
@@ -94,13 +89,7 @@ export const CustomForm = () => {
             .fill()
             .map((empty, i) => (
               <Track key={i}>
-                <Input
-                  type='radio'
-                  id={i + 1}
-                  name='radio_label'
-                  value={i}
-                  checked
-                />
+                <Input type='radio' id={i + 1} name='radio_label' value={i} />
                 <Label id={i + 1} name='radio_label' content='radio' />
               </Track>
             ))}

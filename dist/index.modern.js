@@ -143,16 +143,21 @@ var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   }, props));
 };
 
-var _excluded$6 = ["children", "onSubmit", "innerRef"];
+var _excluded$6 = ["children", "onSubmit", "innerRef", "defaultValues"];
 
 var Form = function Form(_ref) {
   var children = _ref.children,
     onSubmit = _ref.onSubmit,
     innerRef = _ref.innerRef,
+    defaultValues = _ref.defaultValues,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
-  var methods = useForm();
+  var methods = useForm({
+    defaultValues: defaultValues != null ? defaultValues : {}
+  });
   return /*#__PURE__*/React.createElement(FormProvider, methods, /*#__PURE__*/React.createElement("form", _extends({
-    onSubmit: onSubmit && methods.handleSubmit(onSubmit),
+    onSubmit: onSubmit && methods.handleSubmit(function (data, e) {
+      return onSubmit(data, e, methods);
+    }),
     ref: function ref(e) {
       return innerRef ? innerRef.current = e : null;
     }
