@@ -20,12 +20,8 @@ export const CustomForm = () => {
   const select = useRef(null)
   const creditCard = useRef(null)
 
-  const handleSubmit = (data, e, methods) => {
-    console.log(data)
-    console.log(e)
-    console.log(methods)
-
-    methods.reset()
+  const handleSubmit = ({ ...props }) => {
+    console.log(props)
   }
 
   return (
@@ -34,7 +30,11 @@ export const CustomForm = () => {
         <h2>Custom form</h2>
       </Track>
       <Form
+        autoSubmit
         onSubmit={handleSubmit}
+        // onChange={(t, m) => {
+        //   m.handleSubmit((data, e) => handleSubmit(data, e, m))()
+        // }}
         defaultValues={{ checkbox_label: ['1'], radio_label: '1' }}
       >
         <Flex alignItems='start' flexDirection='column'>

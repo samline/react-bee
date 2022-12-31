@@ -145,23 +145,37 @@ var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   }, props));
 };
 
-var _excluded$6 = ["children", "onSubmit", "innerRef", "defaultValues"];
+var _excluded$6 = ["children", "autoSubmit", "onSubmit", "onChange", "innerRef", "defaultValues"];
 
 var Form = function Form(_ref) {
   var children = _ref.children,
+    autoSubmit = _ref.autoSubmit,
     onSubmit = _ref.onSubmit,
+    _onChange = _ref.onChange,
     innerRef = _ref.innerRef,
     defaultValues = _ref.defaultValues,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
   var methods = reactHookForm.useForm({
     defaultValues: defaultValues != null ? defaultValues : {}
   });
+  var doSubmit = methods.handleSubmit(function (data, e) {
+    return onSubmit({
+      data: data,
+      methods: methods,
+      e: e
+    });
+  });
   return /*#__PURE__*/React.createElement(reactHookForm.FormProvider, methods, /*#__PURE__*/React.createElement("form", _extends({
-    onSubmit: onSubmit && methods.handleSubmit(function (data, e) {
-      return onSubmit(data, e, methods);
-    }),
     ref: function ref(e) {
       return innerRef ? innerRef.current = e : null;
+    },
+    onSubmit: onSubmit && doSubmit,
+    onChange: function onChange(e) {
+      _onChange && _onChange({
+        e: e,
+        methods: methods
+      });
+      autoSubmit && onSubmit && doSubmit();
     }
   }, props), children));
 };
