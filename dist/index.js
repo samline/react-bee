@@ -145,20 +145,16 @@ var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   }, props));
 };
 
-var _excluded$6 = ["children", "autoSubmit", "onSubmit", "onChange", "innerRef", "options"];
+var _excluded$6 = ["methods", "children", "autoSubmit", "onSubmit", "onChange", "innerRef"];
 
 var Form = function Form(_ref) {
-  var children = _ref.children,
+  var methods = _ref.methods,
+    children = _ref.children,
     autoSubmit = _ref.autoSubmit,
     onSubmit = _ref.onSubmit,
     _onChange = _ref.onChange,
     innerRef = _ref.innerRef,
-    _ref$options = _ref.options,
-    options = _ref$options === void 0 ? {} : _ref$options,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
-  var methods = reactHookForm.useForm(_extends({
-    shouldUnregister: true
-  }, options));
   var doSubmit = methods.handleSubmit(function (data, e) {
     return onSubmit({
       data: data,

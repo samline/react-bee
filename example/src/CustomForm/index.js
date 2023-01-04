@@ -5,6 +5,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import {
   Box,
   Flex,
+  useForm,
   Track,
   Form,
   Label,
@@ -19,25 +20,11 @@ import {
 export const CustomForm = () => {
   const select = useRef(null)
   const creditCard = useRef(null)
-  const [defaultValues, setDefaultValues] = useState({
-    checkbox_label: ['1', '2'],
-    radio_label: '1'
-  })
+  const methods = useForm({ defaultValues: { checkbox_label: ['1', '2'] } })
 
   const handleSubmit = ({ ...props }) => {
     console.log(props)
   }
-
-  useEffect(() => {
-    setDefaultValues({
-      checkbox_label: ['1', '2'],
-      radio_label: '0'
-    })
-  }, [])
-
-  useEffect(() => {
-    console.log(defaultValues)
-  }, [defaultValues])
 
   return (
     <Box>
@@ -46,9 +33,8 @@ export const CustomForm = () => {
       </Track>
       <Form
         // autoSubmit
+        methods={methods}
         onSubmit={handleSubmit}
-        // defaultValues={{ checkbox_label: ['1'], radio_label: '1' }}
-        options={{ values: defaultValues }}
       >
         <Flex alignItems='start' flexDirection='column'>
           <Track>

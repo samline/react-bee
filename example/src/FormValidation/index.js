@@ -1,19 +1,21 @@
 /* Default */
-import React from 'react'
+import React, { useEffect } from 'react'
 
 /* Packages */
-import { Box, Flex, Track, Form, Error, Input } from 'react-bee'
+import { Box, Flex, Track, Form, Error, Input, useForm } from 'react-bee'
 
 export const FormValidation = () => {
+  const methods = useForm()
   const handleSubmit = (data) => {
     console.log('🚀 ~ file: index.js ~ line 9 ~ handleSubmit ~ data', data)
   }
+
   return (
     <Box>
       <Track>
         <h2>Form validation</h2>
       </Track>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} methods={methods}>
         <Flex>
           <Track>
             <Input
