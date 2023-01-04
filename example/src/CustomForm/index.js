@@ -1,5 +1,5 @@
 /* Default */
-import React, { useRef } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 
 /* Packages */
 import {
@@ -19,10 +19,25 @@ import {
 export const CustomForm = () => {
   const select = useRef(null)
   const creditCard = useRef(null)
+  const [defaultValues, setDefaultValues] = useState({
+    checkbox_label: ['1', '2'],
+    radio_label: '1'
+  })
 
   const handleSubmit = ({ ...props }) => {
     console.log(props)
   }
+
+  useEffect(() => {
+    setDefaultValues({
+      checkbox_label: ['1', '2'],
+      radio_label: '0'
+    })
+  }, [])
+
+  useEffect(() => {
+    console.log(defaultValues)
+  }, [defaultValues])
 
   return (
     <Box>
@@ -32,7 +47,8 @@ export const CustomForm = () => {
       <Form
         // autoSubmit
         onSubmit={handleSubmit}
-        defaultValues={{ checkbox_label: ['1'], radio_label: '1' }}
+        // defaultValues={{ checkbox_label: ['1'], radio_label: '1' }}
+        options={{ values: defaultValues }}
       >
         <Flex alignItems='start' flexDirection='column'>
           <Track>

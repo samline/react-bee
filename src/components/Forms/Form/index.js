@@ -11,12 +11,12 @@ import { FormProvider, useForm } from 'react-hook-form'
  * @param {function} onSubmit - if !onSubmit the form will make a normal request
  * @param {function} onChange
  * @param {reference} innerRef - you can still assign to ref
- * @param {object} defaultValues - { name: value } - set default values for fields
- * - e.g. { checkbox_fruits: ['apple', 'orange', ...], ... } or { accept: '1', ... }
- * - required for chechbox/radio - optional for all other fields
+ * @param {object} options - https://react-hook-form.com/api/useform
  * @param {...any} props
  * @returns onSubmit(({ e, data, methods }) => {...})
  * @returns onChange(({ e, methods }) => {...})
+ *
+ * @info defaultValues is required for chechbox/radio - optional for all other fields
  */
 
 export const Form = ({
@@ -25,10 +25,10 @@ export const Form = ({
   onSubmit,
   onChange,
   innerRef,
-  defaultValues,
+  options = {},
   ...props
 }) => {
-  const methods = useForm({ defaultValues: defaultValues ?? {} })
+  const methods = useForm({ shouldUnregister: true, ...options })
   const doSubmit = methods.handleSubmit((data, e) => onSubmit({ data: data, methods: methods, e: e }))
 
   return (
