@@ -22,12 +22,13 @@ export const Input = ({ id, name, value, validations, innerRef, ...props }) => {
     formState: { errors }
   } = useFormContext()
   const { ref, onChange, onBlur, ...rest } = register(name, { ...validations })
+  const defaultID = useId()
 
   return (
     <React.Fragment>
       {name && (
         <input
-          id={id ? `${name}:${id}` : `${name}:${useId()}`}
+          id={id ? `${name}:${id}` : `${name}:${defaultID}`}
           name={name}
           defaultValue={value}
           aria-invalid={errors[name] && 'true'}

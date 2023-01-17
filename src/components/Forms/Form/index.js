@@ -16,6 +16,7 @@ import { FormProvider, useForm } from 'react-hook-form'
  * @returns onSubmit(({ e, data, methods }) => {...})
  * @returns onChange(({ e, methods }) => {...})
  *
+ * @docs https://react-hook-form.com
  * @info defaultValues is required for chechbox/radio - optional for all other fields
  */
 

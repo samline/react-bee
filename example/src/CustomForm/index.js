@@ -20,7 +20,7 @@ import {
 export const CustomForm = () => {
   const select = useRef(null)
   const creditCard = useRef(null)
-  const methods = useForm({ defaultValues: { checkbox_label: ['1', '2'] } })
+  const methods = useForm({ defaultValues: { checkbox_label: ['1', '2'], input_label: 'Hola de nuevo' } })
 
   const handleSubmit = ({ ...props }) => {
     console.log(props)
@@ -41,7 +41,7 @@ export const CustomForm = () => {
             <Select
               innerRef={select}
               name='select'
-              validations={{ required: false }}
+              validations={{ required: true }}
               placeholder='Select an option'
             >
               <option value='option-1'>Option 1</option>

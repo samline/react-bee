@@ -240,8 +240,9 @@ var Input = function Input(_ref) {
     _onChange = _register.onChange,
     _onBlur = _register.onBlur,
     rest = _objectWithoutPropertiesLoose(_register, _excluded2$1);
+  var defaultID = reactIdGenerator.useId();
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("input", _extends({
-    id: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
+    id: id ? name + ":" + id : name + ":" + defaultID,
     name: name,
     defaultValue: value,
     "aria-invalid": errors[name] && 'true',
