@@ -19,6 +19,8 @@ import Cleave from 'cleave.js/react'
  * @returns (formatted value or raw value)
  */
 
+/* TODO: default values no funciona en input format usar getValues de formContext y poner value antes de ...props y probar */
+
 export const InputFormat = ({
   id,
   name,
