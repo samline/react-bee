@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Packages */
-import { useFormContext, Controller } from 'react-hook-form'
+import { useFormContext, Controller, useWatch } from 'react-hook-form'
 import { useId } from 'react-id-generator'
 import Cleave from 'cleave.js/react'
 
@@ -19,12 +19,9 @@ import Cleave from 'cleave.js/react'
  * @returns (formatted value or raw value)
  */
 
-/* TODO: default values no funciona en input format usar getValues de formContext y poner value antes de ...props y probar */
-
 export const InputFormat = ({
   id,
   name,
-  value,
   validations,
   format,
   rawValue,
@@ -36,6 +33,7 @@ export const InputFormat = ({
     setValue,
     formState: { errors }
   } = useFormContext()
+  const value = getValues(name)
 
   return (
     <React.Fragment>
@@ -51,14 +49,12 @@ export const InputFormat = ({
                 id={id ? `${name}:${id}` : `${name}:${useId()}`}
                 name={name}
                 aria-invalid={errors[name] && 'true'}
-
                 // cleavejs
                 options={{ ...format }}
-                value={value}
+                value={value ? value : ''}
                 // end cleavejs
 
                 {...props}
-
                 // mix
                 onInit={({ getRawValue, lastInputValue }) => {
                   setValue(name, rawValue ? getRawValue() : lastInputValue)
