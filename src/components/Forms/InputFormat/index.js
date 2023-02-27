@@ -31,9 +31,12 @@ export const InputFormat = ({
   const {
     control,
     setValue,
+    getValues,
     formState: { errors }
   } = useFormContext()
   const value = getValues(name)
+
+  /* TODO: test input format, defaultValues and reset */
 
   return (
     <React.Fragment>

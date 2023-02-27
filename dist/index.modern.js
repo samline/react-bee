@@ -257,15 +257,15 @@ const Error = ({
   validations,
   ...props
 }) => {
-  var _errors$name, _errors$name2, _errors$name3, _errors$name4, _errors$name5, _errors$name6, _errors$name7, _errors$name8;
+  var _errors$name, _errors$name2;
   const {
     formState: {
       errors
     }
   } = useFormContext();
-  return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("span", Object.assign({
+  return /*#__PURE__*/React.createElement(React.Fragment, null, name && ((_errors$name = errors[name]) === null || _errors$name === void 0 ? void 0 : _errors$name.type) && /*#__PURE__*/React.createElement("span", Object.assign({
     role: "alert"
-  }, props), ((_errors$name = errors[name]) === null || _errors$name === void 0 ? void 0 : _errors$name.type) === 'required' && validations.required, ((_errors$name2 = errors[name]) === null || _errors$name2 === void 0 ? void 0 : _errors$name2.type) === 'min' && validations.min, ((_errors$name3 = errors[name]) === null || _errors$name3 === void 0 ? void 0 : _errors$name3.type) === 'max' && validations.max, ((_errors$name4 = errors[name]) === null || _errors$name4 === void 0 ? void 0 : _errors$name4.type) === 'minLength' && validations.minLength, ((_errors$name5 = errors[name]) === null || _errors$name5 === void 0 ? void 0 : _errors$name5.type) === 'maxLength' && validations.maxLength, ((_errors$name6 = errors[name]) === null || _errors$name6 === void 0 ? void 0 : _errors$name6.type) === 'pattern' && validations.pattern, ((_errors$name7 = errors[name]) === null || _errors$name7 === void 0 ? void 0 : _errors$name7.type) === 'validate' && validations.validate, ((_errors$name8 = errors[name]) === null || _errors$name8 === void 0 ? void 0 : _errors$name8.type) === 'custom' && validations.custom));
+  }, props), validations[(_errors$name2 = errors[name]) === null || _errors$name2 === void 0 ? void 0 : _errors$name2.type]));
 };
 
 const GlobalError = ({
@@ -349,7 +349,6 @@ const Input = ({
 const InputFormat = ({
   id,
   name,
-  value,
   validations,
   format,
   rawValue,
@@ -359,10 +358,13 @@ const InputFormat = ({
   const {
     control,
     setValue,
+    getValues,
     formState: {
       errors
     }
   } = useFormContext();
+  const value = getValues(name);
+
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement(Controller, {
     control: control,
     name: name,
@@ -383,7 +385,7 @@ const InputFormat = ({
         options: {
           ...format
         },
-        value: value
+        value: value ? value : ''
       }, props, {
         onInit: ({
           getRawValue,

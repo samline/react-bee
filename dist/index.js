@@ -181,15 +181,15 @@ var _excluded$7 = ["name", "validations"],
   _excluded2 = ["message"];
 
 var Error = function Error(_ref) {
-  var _errors$name, _errors$name2, _errors$name3, _errors$name4, _errors$name5, _errors$name6, _errors$name7, _errors$name8;
+  var _errors$name, _errors$name2;
   var name = _ref.name,
     validations = _ref.validations,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
   var _useFormContext = reactHookForm.useFormContext(),
     errors = _useFormContext.formState.errors;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("span", _extends({
+  return /*#__PURE__*/React.createElement(React.Fragment, null, name && ((_errors$name = errors[name]) === null || _errors$name === void 0 ? void 0 : _errors$name.type) && /*#__PURE__*/React.createElement("span", _extends({
     role: "alert"
-  }, props), ((_errors$name = errors[name]) === null || _errors$name === void 0 ? void 0 : _errors$name.type) === 'required' && validations.required, ((_errors$name2 = errors[name]) === null || _errors$name2 === void 0 ? void 0 : _errors$name2.type) === 'min' && validations.min, ((_errors$name3 = errors[name]) === null || _errors$name3 === void 0 ? void 0 : _errors$name3.type) === 'max' && validations.max, ((_errors$name4 = errors[name]) === null || _errors$name4 === void 0 ? void 0 : _errors$name4.type) === 'minLength' && validations.minLength, ((_errors$name5 = errors[name]) === null || _errors$name5 === void 0 ? void 0 : _errors$name5.type) === 'maxLength' && validations.maxLength, ((_errors$name6 = errors[name]) === null || _errors$name6 === void 0 ? void 0 : _errors$name6.type) === 'pattern' && validations.pattern, ((_errors$name7 = errors[name]) === null || _errors$name7 === void 0 ? void 0 : _errors$name7.type) === 'validate' && validations.validate, ((_errors$name8 = errors[name]) === null || _errors$name8 === void 0 ? void 0 : _errors$name8.type) === 'custom' && validations.custom));
+  }, props), validations[(_errors$name2 = errors[name]) === null || _errors$name2 === void 0 ? void 0 : _errors$name2.type]));
 };
 
 var GlobalError = function GlobalError(_ref2) {
@@ -262,12 +262,11 @@ var Input = function Input(_ref) {
   })));
 };
 
-var _excluded$a = ["id", "name", "value", "validations", "format", "rawValue", "innerRef"];
+var _excluded$a = ["id", "name", "validations", "format", "rawValue", "innerRef"];
 
 var InputFormat = function InputFormat(_ref) {
   var id = _ref.id,
     name = _ref.name,
-    value = _ref.value,
     validations = _ref.validations,
     format = _ref.format,
     rawValue = _ref.rawValue,
@@ -276,7 +275,10 @@ var InputFormat = function InputFormat(_ref) {
   var _useFormContext = reactHookForm.useFormContext(),
     control = _useFormContext.control,
     setValue = _useFormContext.setValue,
+    getValues = _useFormContext.getValues,
     errors = _useFormContext.formState.errors;
+  var value = getValues(name);
+
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement(reactHookForm.Controller, {
     control: control,
     name: name,
@@ -292,10 +294,9 @@ var InputFormat = function InputFormat(_ref) {
         id: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
         name: name,
         "aria-invalid": errors[name] && 'true'
-
         ,
         options: _extends({}, format),
-        value: value
+        value: value ? value : ''
       }, props, {
         onInit: function onInit(_ref3) {
           var getRawValue = _ref3.getRawValue,

@@ -20,7 +20,9 @@ import {
 export const CustomForm = () => {
   const select = useRef(null)
   const creditCard = useRef(null)
-  const methods = useForm({ defaultValues: { checkbox_label: ['1', '2'], input_label: 'Hola de nuevo' } })
+  const methods = useForm({
+    defaultValues: { checkbox_label: ['1', '2'], input_label: 'Hola de nuevo' }
+  })
 
   const handleSubmit = ({ ...props }) => {
     console.log(props)
@@ -68,7 +70,21 @@ export const CustomForm = () => {
           </Track>
           <Track>
             <Label id='customId' name='input_label' content='Label' />
-            <Input id='customId' name='input_label' placeholder='With label' />
+            <Input
+              id='customId'
+              name='input_label'
+              placeholder='With label'
+              validations={{ required: true, validate: {
+                customType: (e) => e == 5 || 'Error'
+              } }}
+            />
+            <Error
+              name='input_label'
+              validations={{
+                required: 'Es requerido',
+                customType: 'Error custom',
+              }}
+            />
           </Track>
           {Array(3)
             .fill()

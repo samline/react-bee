@@ -22,16 +22,9 @@ export const Error = ({ name, validations, ...props }) => {
 
   return (
     <React.Fragment>
-      {name && (
+      {name && errors[name]?.type && (
         <span role='alert' {...props}>
-          {errors[name]?.type === 'required' && validations.required}
-          {errors[name]?.type === 'min' && validations.min}
-          {errors[name]?.type === 'max' && validations.max}
-          {errors[name]?.type === 'minLength' && validations.minLength}
-          {errors[name]?.type === 'maxLength' && validations.maxLength}
-          {errors[name]?.type === 'pattern' && validations.pattern}
-          {errors[name]?.type === 'validate' && validations.validate}
-          {errors[name]?.type === 'custom' && validations.custom}
+          {validations[errors[name]?.type]}
         </span>
       )}
     </React.Fragment>
