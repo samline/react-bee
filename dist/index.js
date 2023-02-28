@@ -181,15 +181,15 @@ var _excluded$7 = ["name", "validations"],
   _excluded2 = ["message"];
 
 var Error = function Error(_ref) {
-  var _errors$name, _errors$name2;
+  var _errors$name, _errors$name2, _errors$name3;
   var name = _ref.name,
     validations = _ref.validations,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
   var _useFormContext = reactHookForm.useFormContext(),
     errors = _useFormContext.formState.errors;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, name && ((_errors$name = errors[name]) === null || _errors$name === void 0 ? void 0 : _errors$name.type) && /*#__PURE__*/React.createElement("span", _extends({
+  return /*#__PURE__*/React.createElement(React.Fragment, null, name && ((_errors$name = errors[name]) === null || _errors$name === void 0 ? void 0 : _errors$name.type) && validations[(_errors$name2 = errors[name]) === null || _errors$name2 === void 0 ? void 0 : _errors$name2.type] && /*#__PURE__*/React.createElement("span", _extends({
     role: "alert"
-  }, props), validations[(_errors$name2 = errors[name]) === null || _errors$name2 === void 0 ? void 0 : _errors$name2.type]));
+  }, props), validations[(_errors$name3 = errors[name]) === null || _errors$name3 === void 0 ? void 0 : _errors$name3.type]));
 };
 
 var GlobalError = function GlobalError(_ref2) {
