@@ -12,9 +12,6 @@ import { useFormContext } from 'react-hook-form'
  * @returns
  */
 
-/* TODO: Auto translate and custom messages */
-/* TODO: Set custom error */
-
 export const Error = ({ name, validations, ...props }) => {
   const {
     formState: { errors }
@@ -22,7 +19,7 @@ export const Error = ({ name, validations, ...props }) => {
 
   return (
     <React.Fragment>
-      {name && errors[name]?.type && (
+      {name && errors[name]?.type && validations[errors[name]?.type] && (
         <span role='alert' {...props}>
           {validations[errors[name]?.type]}
         </span>
