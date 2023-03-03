@@ -68,12 +68,15 @@ var Box = styled__default.div(_templateObject$1 || (_templateObject$1 = _taggedT
   return !props.fullWidth && styled.css(_templateObject2 || (_templateObject2 = _taggedTemplateLiteralLoose(["\n      max-width: 85.375rem;\n    "])));
 }, ss.compose(ss.layout, ss.position, ss.space));
 
-var _excluded = ["children"];
+var _excluded = ["children", "innerRef"];
 
 var Box$1 = function Box$1(_ref) {
   var children = _ref.children,
+    innerRef = _ref.innerRef,
     props = _objectWithoutPropertiesLoose(_ref, _excluded);
-  return /*#__PURE__*/React.createElement(Box, props, children);
+  return /*#__PURE__*/React.createElement(Box, _extends({}, props, {
+    ref: innerRef
+  }), children);
 };
 
 var _templateObject$2, _templateObject2$1;
@@ -81,12 +84,15 @@ var Flex = styled__default.div(_templateObject$2 || (_templateObject$2 = _tagged
   return props.show && styled.css(_templateObject2$1 || (_templateObject2$1 = _taggedTemplateLiteralLoose(["\n      outline: 2px dashed;\n    "])));
 }, ss.compose(ss.flexbox, ss.grid, ss.layout, ss.space));
 
-var _excluded$1 = ["children"];
+var _excluded$1 = ["children", "innerRef"];
 
 var Flex$1 = function Flex$1(_ref) {
   var children = _ref.children,
+    innerRef = _ref.innerRef,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
-  return /*#__PURE__*/React.createElement(Flex, props, children);
+  return /*#__PURE__*/React.createElement(Flex, _extends({}, props, {
+    ref: innerRef
+  }), children);
 };
 
 var _templateObject$3, _templateObject2$2;
@@ -94,12 +100,15 @@ var Grid = styled__default.div(_templateObject$3 || (_templateObject$3 = _tagged
   return props.show && styled.css(_templateObject2$2 || (_templateObject2$2 = _taggedTemplateLiteralLoose(["\n      outline: 2px dashed;\n    "])));
 }, ss.compose(ss.flexbox, ss.grid, ss.layout, ss.space));
 
-var _excluded$2 = ["children"];
+var _excluded$2 = ["children", "innerRef"];
 
 var Grid$1 = function Grid$1(_ref) {
   var children = _ref.children,
+    innerRef = _ref.innerRef,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$2);
-  return /*#__PURE__*/React.createElement(Grid, props, children);
+  return /*#__PURE__*/React.createElement(Grid, _extends({}, props, {
+    ref: innerRef
+  }), children);
 };
 
 var _templateObject$4, _templateObject2$3, _templateObject3;
@@ -109,29 +118,35 @@ var Track = styled__default.div(_templateObject$4 || (_templateObject$4 = _tagge
   return props.inner && styled.css(_templateObject3 || (_templateObject3 = _taggedTemplateLiteralLoose(["\n      padding: 0rem;\n    "])));
 }, ss.compose(ss.background, ss.border, ss.color, ss.flexbox, ss.grid, ss.layout, ss.space, ss.position, ss.typography));
 
-var _excluded$3 = ["children"];
+var _excluded$3 = ["children", "innerRef"];
 
 var Track$1 = function Track$1(_ref) {
   var children = _ref.children,
+    innerRef = _ref.innerRef,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$3);
-  return /*#__PURE__*/React.createElement(Track, props, children);
+  return /*#__PURE__*/React.createElement(Track, _extends({}, props, {
+    ref: innerRef
+  }), children);
 };
 
 var _templateObject$5;
 var _ = styled__default.div(_templateObject$5 || (_templateObject$5 = _taggedTemplateLiteralLoose(["\n  ", "\n"])), ss.compose(ss.background, ss.border, ss.color, ss.flexbox, ss.grid, ss.layout, ss.position, ss.shadow, ss.space, ss.typography));
 
-var _excluded$4 = ["children"];
+var _excluded$4 = ["children", "innerRef"];
 
 var _$1 = function _$1(_ref) {
   var children = _ref.children,
+    innerRef = _ref.innerRef,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$4);
-  return /*#__PURE__*/React.createElement(_, props, children);
+  return /*#__PURE__*/React.createElement(_, _extends({}, props, {
+    ref: innerRef
+  }), children);
 };
 
 var _templateObject$6;
 var Icon = styled__default(reactFontawesome.FontAwesomeIcon)(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteralLoose(["\n  height: 1em;\n  ", "\n"])), ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
 
-var _excluded$5 = ["icon", "lib"];
+var _excluded$5 = ["icon", "lib", "innerRef"];
 
 fontawesomeSvgCore.library.add(freeBrandsSvgIcons.fab, freeRegularSvgIcons.far, freeSolidSvgIcons.fas);
 
@@ -139,10 +154,13 @@ var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   var icon = _ref.icon,
     _ref$lib = _ref.lib,
     lib = _ref$lib === void 0 ? 'fas' : _ref$lib,
+    innerRef = _ref.innerRef,
     props = _objectWithoutPropertiesLoose(_ref, _excluded$5);
   return /*#__PURE__*/React.createElement(Icon, _extends({
     icon: [lib, icon]
-  }, props));
+  }, props, {
+    ref: innerRef
+  }));
 };
 
 var _excluded$6 = ["methods", "children", "autoSubmit", "onSubmit", "onChange", "innerRef"];
