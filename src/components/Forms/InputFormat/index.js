@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Packages */
-import { useFormContext, Controller, useWatch } from 'react-hook-form'
+import { useFormContext, Controller } from 'react-hook-form'
 import { useId } from 'react-id-generator'
 import Cleave from 'cleave.js/react'
 
