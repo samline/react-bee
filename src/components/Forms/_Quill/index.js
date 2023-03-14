@@ -1,9 +1,8 @@
 /* Default */
-import React from 'react'
+import React, { useId } from 'react'
 
 /* Packages */
 import { useFormContext, Controller } from 'react-hook-form'
-import { useId } from 'react-id-generator'
 
 /* ./ */
 import { Quill as QuillEditor, modules, formats } from './config'
@@ -13,7 +12,7 @@ import { Quill as QuillEditor, modules, formats } from './config'
  * @param {string} id
  * @param {string} name (required)
  * @param {string} value
-//  * @param {reference} innerRef - you can still assign to ref
+ * @param {string} className
  * @param {object} validations (Docs: https://react-hook-form.com/get-started#Applyvalidation)
  * @param {...any} props
  * @returns
@@ -22,6 +21,7 @@ import { Quill as QuillEditor, modules, formats } from './config'
  */
 
 export const Quill = ({ id, name, validations, className = '', ...props }) => {
+  const initialID = useId()
   const {
     control,
     setValue,
@@ -40,7 +40,7 @@ export const Quill = ({ id, name, validations, className = '', ...props }) => {
           render={({ field: { onChange, onBlur } }) => {
             return (
               <QuillEditor
-                id={id ? `${name}:${id}` : `${name}:${useId()}`}
+                id={id ? `${name}:${id}` : `${name}:${initialID}`}
                 name={name}
                 aria-invalid={errors[name] && 'true'}
                 className={`${className} ${errors[name] ? 'aria-invalid' : ''}`}

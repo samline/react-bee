@@ -2,12 +2,24 @@
 import dynamic from 'next/dynamic'
 
 /* Packages */
+const Quill = dynamic(
+  async () => {
+    const { default: Q } = await import('react-quill')
+    const { default: ImageCompress } = await import('quill-image-compress')
+    Q.Quill.register('modules/imageCompress', ImageCompress)
+    return function forwardRef({ forwardedRef, ...props }) {
+      return <Q ref={forwardedRef} {...props} />
+    }
+  },
+  {
+    ssr: false
+  }
+)
+
+/* Styles */
 import 'react-quill/dist/quill.snow.css'
 
-export const Quill = dynamic(import('react-quill'), {
-  ssr: false,
-  loading: () => <p>Loading ...</p>
-})
+export { Quill }
 
 export const modules = {
   toolbar: [
@@ -18,7 +30,6 @@ export const modules = {
       { align: 'justify' }
     ],
     [{ header: '1' }, { header: '2' }],
-    // [{ size: [] }],
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
     [
       { list: 'ordered' },
@@ -31,6 +42,15 @@ export const modules = {
   ],
   clipboard: {
     matchVisual: false
+  },
+  imageCompress: {
+    debug: false,
+    imageType: 'image/jpeg',
+    insertIntoEditor: undefined,
+    maxHeight: 800,
+    maxWidth: 800,
+    quality: 0.7,
+    suppressErrorLogging: false
   }
 }
 
