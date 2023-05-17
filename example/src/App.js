@@ -9,12 +9,17 @@ import { FlexExample } from './FlexExample'
 import { GridExample } from './GridExample'
 import { CustomForm } from './CustomForm'
 import { FormValidation } from './FormValidation'
+import { FontAwesome } from './FontAwesome'
 
 const App = () => {
   return (
     <>
       <NormalizeCss />
 
+      <FontAwesome />
+      <br />
+      <br />
+      <hr />
       <CustomForm />
       <br />
       <br />
