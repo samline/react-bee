@@ -8,6 +8,7 @@
 import { NormalizeCss, breakpoints } from './components/NormalizeCss'
 import { Box, Flex, Grid, Track, _ } from './components/Layout'
 import { FontAwesomeIcon } from './components/FontAwesomeIcon'
+import { FontAwesomeIconPro } from './components/FontAwesomeIconPro'
 import {
   Form,
   Error,
@@ -42,6 +43,7 @@ export {
 
   /* Components */
   FontAwesomeIcon,
+  FontAwesomeIconPro,
 
   /* Layout */
   _,

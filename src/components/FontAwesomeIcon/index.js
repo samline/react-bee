@@ -9,22 +9,16 @@ import { Icon } from './styles'
 
 /* Libraries */
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { fad } from '@fortawesome/pro-duotone-svg-icons'
-import { fal } from '@fortawesome/pro-light-svg-icons'
-import { far } from '@fortawesome/pro-regular-svg-icons'
-import { fas } from '@fortawesome/pro-solid-svg-icons'
-import { fat } from '@fortawesome/pro-thin-svg-icons'
-import { fasl } from '@fortawesome/sharp-light-svg-icons'
-import { fasr } from '@fortawesome/sharp-regular-svg-icons'
-import { fass } from '@fortawesome/sharp-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 /* Settings */
-library.add(fab, fad, fal, far, fas, fasl, fasr, fass, fat)
+library.add(fab, far, fas)
 
 /**
  * FontAwesomeIcon
  * @param {string} icon (required) - The icon to use. (e.g. 'chevron-right')
- * @param {string} lib - The library to use. - (e.g. 'fas', 'fab', 'far') - default: 'fas'
+ * @param {string} lib - The library to use. - (e.g. fab, far, fas) - default: 'fas'
  * @param {reference} innerRef - you can still assign to ref
  * @param {...any} props
  * @returns component

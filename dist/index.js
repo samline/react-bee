@@ -7,6 +7,8 @@ var ss = require('styled-system');
 var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
 var reactFontawesome = require('@fortawesome/react-fontawesome');
 var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
+var freeRegularSvgIcons = require('@fortawesome/free-regular-svg-icons');
+var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
 var proDuotoneSvgIcons = require('@fortawesome/pro-duotone-svg-icons');
 var proLightSvgIcons = require('@fortawesome/pro-light-svg-icons');
 var proRegularSvgIcons = require('@fortawesome/pro-regular-svg-icons');
@@ -148,7 +150,7 @@ var _templateObject$6;
 var Icon = styled__default(reactFontawesome.FontAwesomeIcon)(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteralLoose(["\n  height: 1em;\n  ", "\n"])), ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
 
 var _excluded$5 = ["icon", "lib", "innerRef"];
-fontawesomeSvgCore.library.add(freeBrandsSvgIcons.fab, proDuotoneSvgIcons.fad, proLightSvgIcons.fal, proRegularSvgIcons.far, proSolidSvgIcons.fas, sharpLightSvgIcons.fasl, sharpRegularSvgIcons.fasr, sharpSolidSvgIcons.fass, proThinSvgIcons.fat);
+fontawesomeSvgCore.library.add(freeBrandsSvgIcons.fab, freeRegularSvgIcons.far, freeSolidSvgIcons.fas);
 var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   var icon = _ref.icon,
     _ref$lib = _ref.lib,
@@ -162,7 +164,25 @@ var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   }));
 };
 
-var _excluded$6 = ["methods", "children", "autoSubmit", "onSubmit", "onChange", "innerRef"];
+var _templateObject$7;
+var Icon$1 = styled__default(reactFontawesome.FontAwesomeIcon)(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteralLoose(["\n  height: 1em;\n  ", "\n"])), ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
+
+var _excluded$6 = ["icon", "lib", "innerRef"];
+fontawesomeSvgCore.library.add(freeBrandsSvgIcons.fab, proDuotoneSvgIcons.fad, proLightSvgIcons.fal, proRegularSvgIcons.far, proSolidSvgIcons.fas, sharpLightSvgIcons.fasl, sharpRegularSvgIcons.fasr, sharpSolidSvgIcons.fass, proThinSvgIcons.fat);
+var FontAwesomeIconPro = function FontAwesomeIconPro(_ref) {
+  var icon = _ref.icon,
+    _ref$lib = _ref.lib,
+    lib = _ref$lib === void 0 ? 'fas' : _ref$lib,
+    innerRef = _ref.innerRef,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
+  return /*#__PURE__*/React.createElement(Icon$1, _extends({
+    icon: [lib, icon]
+  }, props, {
+    ref: innerRef
+  }));
+};
+
+var _excluded$7 = ["methods", "children", "autoSubmit", "onSubmit", "onChange", "innerRef"];
 var Form = function Form(_ref) {
   var methods = _ref.methods,
     children = _ref.children,
@@ -170,7 +190,7 @@ var Form = function Form(_ref) {
     onSubmit = _ref.onSubmit,
     _onChange = _ref.onChange,
     innerRef = _ref.innerRef,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
   var doSubmit = methods.handleSubmit(function (data, e) {
     return onSubmit({
       data: data,
@@ -193,13 +213,13 @@ var Form = function Form(_ref) {
   }, props), children));
 };
 
-var _excluded$7 = ["name", "validations"],
+var _excluded$8 = ["name", "validations"],
   _excluded2 = ["message"];
 var Error = function Error(_ref) {
   var _errors$name, _errors$name2, _errors$name3;
   var name = _ref.name,
     validations = _ref.validations,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
   var _useFormContext = reactHookForm.useFormContext(),
     errors = _useFormContext.formState.errors;
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && ((_errors$name = errors[name]) === null || _errors$name === void 0 ? void 0 : _errors$name.type) && validations[(_errors$name2 = errors[name]) === null || _errors$name2 === void 0 ? void 0 : _errors$name2.type] && /*#__PURE__*/React.createElement("span", _extends({
@@ -216,14 +236,14 @@ var GlobalError = function GlobalError(_ref2) {
   }, props), message));
 };
 
-var _excluded$8 = ["children", "id", "name", "content", "innerRef"];
+var _excluded$9 = ["children", "id", "name", "content", "innerRef"];
 var Label = function Label(_ref) {
   var children = _ref.children,
     id = _ref.id,
     name = _ref.name,
     content = _ref.content,
     innerRef = _ref.innerRef,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
   var _useFormContext = reactHookForm.useFormContext(),
     errors = _useFormContext.formState.errors;
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement("label", _extends({
@@ -235,7 +255,7 @@ var Label = function Label(_ref) {
   }, props), children != null ? children : content));
 };
 
-var _excluded$9 = ["id", "name", "value", "validations", "innerRef"],
+var _excluded$a = ["id", "name", "value", "validations", "innerRef"],
   _excluded2$1 = ["ref", "onChange", "onBlur"];
 var Input = function Input(_ref) {
   var id = _ref.id,
@@ -243,7 +263,7 @@ var Input = function Input(_ref) {
     value = _ref.value,
     validations = _ref.validations,
     innerRef = _ref.innerRef,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
   var _useFormContext = reactHookForm.useFormContext(),
     register = _useFormContext.register,
     errors = _useFormContext.formState.errors;
@@ -274,7 +294,7 @@ var Input = function Input(_ref) {
   })));
 };
 
-var _excluded$a = ["id", "name", "validations", "format", "rawValue", "innerRef"];
+var _excluded$b = ["id", "name", "validations", "format", "rawValue", "innerRef"];
 var InputFormat = function InputFormat(_ref) {
   var id = _ref.id,
     name = _ref.name,
@@ -282,7 +302,7 @@ var InputFormat = function InputFormat(_ref) {
     format = _ref.format,
     rawValue = _ref.rawValue,
     innerRef = _ref.innerRef,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
   var _useFormContext = reactHookForm.useFormContext(),
     control = _useFormContext.control,
     setValue = _useFormContext.setValue,
@@ -327,7 +347,7 @@ var InputFormat = function InputFormat(_ref) {
   }));
 };
 
-var _excluded$b = ["children", "id", "name", "value", "validations", "innerRef"],
+var _excluded$c = ["children", "id", "name", "value", "validations", "innerRef"],
   _excluded2$2 = ["ref", "onChange", "onBlur"];
 var Select = function Select(_ref) {
   var children = _ref.children,
@@ -337,7 +357,7 @@ var Select = function Select(_ref) {
     value = _ref$value === void 0 ? '' : _ref$value,
     validations = _ref.validations,
     innerRef = _ref.innerRef,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
   var _useFormContext = reactHookForm.useFormContext(),
     register = _useFormContext.register,
     errors = _useFormContext.formState.errors;
@@ -370,7 +390,7 @@ var Select = function Select(_ref) {
   }, props.placeholder), children));
 };
 
-var _excluded$c = ["id", "name", "value", "validations", "innerRef"],
+var _excluded$d = ["id", "name", "value", "validations", "innerRef"],
   _excluded2$3 = ["ref", "onChange", "onBlur"];
 var Textarea = function Textarea(_ref) {
   var id = _ref.id,
@@ -378,7 +398,7 @@ var Textarea = function Textarea(_ref) {
     value = _ref.value,
     validations = _ref.validations,
     innerRef = _ref.innerRef,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$d);
   var _useFormContext = reactHookForm.useFormContext(),
     register = _useFormContext.register,
     errors = _useFormContext.formState.errors;
@@ -407,6 +427,8 @@ var Textarea = function Textarea(_ref) {
     }
   })));
 };
+
+require('dotenv').config();
 
 Object.defineProperty(exports, 'Controller', {
   enumerable: true,
@@ -460,6 +482,7 @@ exports.Box = Box$1;
 exports.Error = Error;
 exports.Flex = Flex$1;
 exports.FontAwesomeIcon = FontAwesomeIcon;
+exports.FontAwesomeIconPro = FontAwesomeIconPro;
 exports.Form = Form;
 exports.GlobalError = GlobalError;
 exports.Grid = Grid$1;
