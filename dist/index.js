@@ -69,7 +69,6 @@ var Box = styled__default.div(_templateObject$1 || (_templateObject$1 = _taggedT
 }, ss.compose(ss.layout, ss.position, ss.space));
 
 var _excluded = ["children", "innerRef"];
-
 var Box$1 = function Box$1(_ref) {
   var children = _ref.children,
     innerRef = _ref.innerRef,
@@ -85,7 +84,6 @@ var Flex = styled__default.div(_templateObject$2 || (_templateObject$2 = _tagged
 }, ss.compose(ss.flexbox, ss.grid, ss.layout, ss.space));
 
 var _excluded$1 = ["children", "innerRef"];
-
 var Flex$1 = function Flex$1(_ref) {
   var children = _ref.children,
     innerRef = _ref.innerRef,
@@ -101,7 +99,6 @@ var Grid = styled__default.div(_templateObject$3 || (_templateObject$3 = _tagged
 }, ss.compose(ss.flexbox, ss.grid, ss.layout, ss.space));
 
 var _excluded$2 = ["children", "innerRef"];
-
 var Grid$1 = function Grid$1(_ref) {
   var children = _ref.children,
     innerRef = _ref.innerRef,
@@ -119,7 +116,6 @@ var Track = styled__default.div(_templateObject$4 || (_templateObject$4 = _tagge
 }, ss.compose(ss.background, ss.border, ss.color, ss.flexbox, ss.grid, ss.layout, ss.space, ss.position, ss.typography));
 
 var _excluded$3 = ["children", "innerRef"];
-
 var Track$1 = function Track$1(_ref) {
   var children = _ref.children,
     innerRef = _ref.innerRef,
@@ -133,7 +129,6 @@ var _templateObject$5;
 var _ = styled__default.div(_templateObject$5 || (_templateObject$5 = _taggedTemplateLiteralLoose(["\n  ", "\n"])), ss.compose(ss.background, ss.border, ss.color, ss.flexbox, ss.grid, ss.layout, ss.position, ss.shadow, ss.space, ss.typography));
 
 var _excluded$4 = ["children", "innerRef"];
-
 var _$1 = function _$1(_ref) {
   var children = _ref.children,
     innerRef = _ref.innerRef,
@@ -147,9 +142,7 @@ var _templateObject$6;
 var Icon = styled__default(reactFontawesome.FontAwesomeIcon)(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteralLoose(["\n  height: 1em;\n  ", "\n"])), ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
 
 var _excluded$5 = ["icon", "lib", "innerRef"];
-
 fontawesomeSvgCore.library.add(freeBrandsSvgIcons.fab, freeRegularSvgIcons.far, freeSolidSvgIcons.fas);
-
 var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   var icon = _ref.icon,
     _ref$lib = _ref.lib,
@@ -164,7 +157,6 @@ var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
 };
 
 var _excluded$6 = ["methods", "children", "autoSubmit", "onSubmit", "onChange", "innerRef"];
-
 var Form = function Form(_ref) {
   var methods = _ref.methods,
     children = _ref.children,
@@ -197,7 +189,6 @@ var Form = function Form(_ref) {
 
 var _excluded$7 = ["name", "validations"],
   _excluded2 = ["message"];
-
 var Error = function Error(_ref) {
   var _errors$name, _errors$name2, _errors$name3;
   var name = _ref.name,
@@ -209,7 +200,6 @@ var Error = function Error(_ref) {
     role: "alert"
   }, props), validations[(_errors$name3 = errors[name]) === null || _errors$name3 === void 0 ? void 0 : _errors$name3.type]));
 };
-
 var GlobalError = function GlobalError(_ref2) {
   var message = _ref2.message,
     props = _objectWithoutPropertiesLoose(_ref2, _excluded2);
@@ -221,7 +211,6 @@ var GlobalError = function GlobalError(_ref2) {
 };
 
 var _excluded$8 = ["children", "id", "name", "content", "innerRef"];
-
 var Label = function Label(_ref) {
   var children = _ref.children,
     id = _ref.id,
@@ -242,7 +231,6 @@ var Label = function Label(_ref) {
 
 var _excluded$9 = ["id", "name", "value", "validations", "innerRef"],
   _excluded2$1 = ["ref", "onChange", "onBlur"];
-
 var Input = function Input(_ref) {
   var id = _ref.id,
     name = _ref.name,
@@ -281,7 +269,6 @@ var Input = function Input(_ref) {
 };
 
 var _excluded$a = ["id", "name", "validations", "format", "rawValue", "innerRef"];
-
 var InputFormat = function InputFormat(_ref) {
   var id = _ref.id,
     name = _ref.name,
@@ -296,7 +283,6 @@ var InputFormat = function InputFormat(_ref) {
     getValues = _useFormContext.getValues,
     errors = _useFormContext.formState.errors;
   var value = getValues(name);
-
   return /*#__PURE__*/React.createElement(React.Fragment, null, name && /*#__PURE__*/React.createElement(reactHookForm.Controller, {
     control: control,
     name: name,
@@ -311,8 +297,7 @@ var InputFormat = function InputFormat(_ref) {
         },
         id: id ? name + ":" + id : name + ":" + reactIdGenerator.useId(),
         name: name,
-        "aria-invalid": errors[name] && 'true'
-        ,
+        "aria-invalid": errors[name] && 'true',
         options: _extends({}, format),
         value: value ? value : ''
       }, props, {
@@ -338,7 +323,6 @@ var InputFormat = function InputFormat(_ref) {
 
 var _excluded$b = ["children", "id", "name", "value", "validations", "innerRef"],
   _excluded2$2 = ["ref", "onChange", "onBlur"];
-
 var Select = function Select(_ref) {
   var children = _ref.children,
     id = _ref.id,
@@ -382,7 +366,6 @@ var Select = function Select(_ref) {
 
 var _excluded$c = ["id", "name", "value", "validations", "innerRef"],
   _excluded2$3 = ["ref", "onChange", "onBlur"];
-
 var Textarea = function Textarea(_ref) {
   var id = _ref.id,
     name = _ref.name,

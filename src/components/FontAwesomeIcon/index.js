@@ -12,13 +12,6 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 
-/* Package.json  */
-/* "@fortawesome/fontawesome-svg-core": "^6.2.0",
-"@fortawesome/free-brands-svg-icons": "^6.2.0",
-"@fortawesome/free-regular-svg-icons": "^6.2.0",
-"@fortawesome/free-solid-svg-icons": "^6.2.0",
-"@fortawesome/react-fontawesome": "^0.2.0", */
-
 /* Settings */
 library.add(fab, far, fas)
 
