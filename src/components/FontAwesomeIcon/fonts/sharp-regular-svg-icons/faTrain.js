@@ -1,0 +1,30 @@
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var prefix = 'fasr';
+var iconName = 'train';
+var width = 448;
+var height = 512;
+var aliases = [128646];
+var unicode = 'f238';
+var svgPathData = 'M48 48V192H400V48H48zm0 192V400H400V240H48zM0 0H48 400h48V48 400v48H400 385.9l47 47 17 17H382.1l-64-64H129.9l-64 64H-1.9l17-17 47-47H48 0V400 48 0zM184 320a40 40 0 1 1 80 0 40 40 0 1 1 -80 0z';
+
+exports.definition = {
+  prefix: prefix,
+  iconName: iconName,
+  icon: [
+    width,
+    height,
+    aliases,
+    unicode,
+    svgPathData
+  ]};
+
+exports.faTrain = exports.definition;
+exports.prefix = prefix;
+exports.iconName = iconName;
+exports.width = width;
+exports.height = height;
+exports.ligatures = aliases;
+exports.unicode = unicode;
+exports.svgPathData = svgPathData;
+exports.aliases = aliases;
