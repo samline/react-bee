@@ -428,8 +428,6 @@ var Textarea = function Textarea(_ref) {
   })));
 };
 
-require('dotenv').config();
-
 Object.defineProperty(exports, 'Controller', {
   enumerable: true,
   get: function () {

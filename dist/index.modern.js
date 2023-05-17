@@ -426,7 +426,5 @@ var Textarea = function Textarea(_ref) {
   })));
 };
 
-require('dotenv').config();
-
 export { Box$1 as Box, Error, Flex$1 as Flex, FontAwesomeIcon, FontAwesomeIconPro, Form, GlobalError, Grid$1 as Grid, Input, InputFormat, Label, NormalizeCss, Select, Textarea, Track$1 as Track, _$1 as _, breakpoints };
 //# sourceMappingURL=index.modern.js.map
