@@ -8,18 +8,19 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { Icon } from './styles'
 
 /* Libraries */
-import * as fab from './fonts/brands'
-import * as fad from './fonts/duotone'
-import * as fal from './fonts/light'
-import * as far from './fonts/regular'
-import * as fas from './fonts/solid'
-import * as fat from './fonts/thin'
-import * as fasl from './fonts/sharp-light'
-import * as fasr from './fonts/sharp-regular'
-import * as fass from './fonts/sharp-solid'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
+/* Package.json  */
+/* "@fortawesome/fontawesome-svg-core": "^6.2.0",
+"@fortawesome/free-brands-svg-icons": "^6.2.0",
+"@fortawesome/free-regular-svg-icons": "^6.2.0",
+"@fortawesome/free-solid-svg-icons": "^6.2.0",
+"@fortawesome/react-fontawesome": "^0.2.0", */
 
 /* Settings */
-library.add(fab, fad, fal, far, fas, fat, fasl, fasr, fass)
+library.add(fab, far, fas)
 
 /**
  * FontAwesomeIcon
