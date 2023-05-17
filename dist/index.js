@@ -7,8 +7,14 @@ var ss = require('styled-system');
 var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
 var reactFontawesome = require('@fortawesome/react-fontawesome');
 var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
-var freeRegularSvgIcons = require('@fortawesome/free-regular-svg-icons');
-var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
+var proDuotoneSvgIcons = require('@fortawesome/pro-duotone-svg-icons');
+var proLightSvgIcons = require('@fortawesome/pro-light-svg-icons');
+var proRegularSvgIcons = require('@fortawesome/pro-regular-svg-icons');
+var proSolidSvgIcons = require('@fortawesome/pro-solid-svg-icons');
+var proThinSvgIcons = require('@fortawesome/pro-thin-svg-icons');
+var sharpLightSvgIcons = require('@fortawesome/sharp-light-svg-icons');
+var sharpRegularSvgIcons = require('@fortawesome/sharp-regular-svg-icons');
+var sharpSolidSvgIcons = require('@fortawesome/sharp-solid-svg-icons');
 var reactHookForm = require('react-hook-form');
 var reactIdGenerator = require('react-id-generator');
 var Cleave = _interopDefault(require('cleave.js/react'));
@@ -142,7 +148,7 @@ var _templateObject$6;
 var Icon = styled__default(reactFontawesome.FontAwesomeIcon)(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteralLoose(["\n  height: 1em;\n  ", "\n"])), ss.compose(ss.color, ss.layout, ss.position, ss.space, ss.typography));
 
 var _excluded$5 = ["icon", "lib", "innerRef"];
-fontawesomeSvgCore.library.add(freeBrandsSvgIcons.fab, freeRegularSvgIcons.far, freeSolidSvgIcons.fas);
+fontawesomeSvgCore.library.add(freeBrandsSvgIcons.fab, proDuotoneSvgIcons.fad, proLightSvgIcons.fal, proRegularSvgIcons.far, proSolidSvgIcons.fas, sharpLightSvgIcons.fasl, sharpRegularSvgIcons.fasr, sharpSolidSvgIcons.fass, proThinSvgIcons.fat);
 var FontAwesomeIcon = function FontAwesomeIcon(_ref) {
   var icon = _ref.icon,
     _ref$lib = _ref.lib,
